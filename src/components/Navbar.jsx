@@ -101,84 +101,18 @@
 
 // export default Navbar;
 
-// --------
-// import React, { useEffect, useState } from "react";
-// import { Link } from "react-router-dom";
-
-// import { styles } from "../styles";
-// import { navLinks } from "../constants";
-// import { logo2, menu, close } from "../assets";
-
-// const Navbar = () => {
-//   const [active, setActive] = useState("");
-//   const [toggle, setToggle] = useState(false);
-//   const [scrolled, setScrolled] = useState(false);
-
-//   useEffect(() => {
-//     const handleScroll = () => {
-//       const scrollTop = window.scrollY;
-//       setScrolled(scrollTop > 100);
-//     };
-
-//     window.addEventListener("scroll", handleScroll);
-//     return () => window.removeEventListener("scroll", handleScroll);
-//   }, []);
-
-//   return (
-//     <nav
-//       className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
-//         scrolled ? "shadow-lg" : ""
-//       }`}
-//     >
-//       <div className='flex flex-col items-center w-full'>
-//         <Link
-//           to='/'
-//           className='flex items-center gap-2 mb-10'
-//           onClick={() => {
-//             setActive("");
-//             window.scrollTo(0, 0);
-//           }}
-//         >
-//           <img src={logo2} alt='logo' className='w-12 h-12 object-contain' />
-//         </Link>
-
-//         <ul className='list-none flex flex-col gap-10 w-full text-center'>
-//           {navLinks.map((nav) => (
-//             <li
-//               key={nav.id}
-//               className={`relative flex justify-center items-center h-20 w-full ${
-//                 active === nav.title ? "text-white" : "text-secondary"
-//               } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
-//               onClick={() => setActive(nav.title)}
-//             >
-//               <a
-//                 to={`#${nav.id}`} 
-//                 className='transform -rotate-90 block w-full text-center h-full flex items-center justify-center'
-//               >
-//                 {nav.title}
-//               </a>
-//             </li>
-//           ))}
-//         </ul>
-//       </div>
-//     </nav>
-//   );
-// };
-
-// export default Navbar;
+//-----
 
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-
-import { styles } from "../styles";
-import { navLinks } from "../constants";
-import { logo2, menu, close } from "../assets";
+import { navLinks } from "../constants"; // Ensure this has the correct sections and IDs
+import { logo2 } from "../assets";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
-  const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Handle scroll behavior for sticky navbar
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
@@ -189,42 +123,71 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Set up Intersection Observer to detect when sections are in view
+  useEffect(() => {
+    const sections = navLinks.map((nav) => document.getElementById(nav.id));
+    const observerOptions = {
+      rootMargin: "0px 0px -20% 0px", // The section needs to be 50% in view before being considered "active"
+      threshold: 0.5, // Trigger when 50% of the section is visible
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActive(entry.target.id); // Update active state when section comes into view
+        }
+      });
+    }, observerOptions);
+
+    // Observe each section
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      // Clean up observer when component unmounts
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <nav
       className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
         scrolled ? "shadow-lg" : ""
       }`}
     >
-      <div className='flex flex-col items-center w-full'>
+      <div className="flex flex-col items-center w-full">
         <Link
-          to='/'
-          className='flex items-center gap-2 mb-10'
+          to="/"
+          className="flex items-center gap-2 mb-10"
           onClick={() => {
             setActive("");
-            window.scrollTo(0, 0);
+            window.scrollTo(0, 0); // Scroll to top when clicking on logo
           }}
         >
-          <img src={logo2} alt='logo' className='w-12 h-12 object-contain' />
+          <img src={logo2} alt="logo" className="w-12 h-12 object-contain" />
         </Link>
 
-        <ul className='list-none flex flex-col gap-10 w-full text-center'>
+        <ul className="list-none flex flex-col gap-10 w-full text-center">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
               className={`relative flex justify-center items-center h-20 w-full ${
-                active === nav.title ? "text-white" : "text-secondary"
+                active === nav.id ? "text-white" : "text-secondary"
               } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
               onClick={() => {
-                setActive(nav.title);
+                setActive(nav.id); // Update active state when clicking
                 const section = document.getElementById(nav.id);
                 if (section) {
                   section.scrollIntoView({ behavior: "smooth" });
                 }
               }}
             >
-              <Link 
-                to={`#${nav.id}`} 
-                className='transform -rotate-90 block w-full text-center h-full flex items-center justify-center'
+              <Link
+                to={`#${nav.id}`}
+                className="transform -rotate-90 block w-full text-center h-full flex items-center justify-center"
               >
                 {nav.title}
               </Link>
