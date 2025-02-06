@@ -16,8 +16,11 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "#1d1836",
+        background: "rgba(255, 255, 255, 0.05)",
         color: "#fff",
+        backdropFilter: "blur(4px)", // Equivalent to backdrop-blur-sm
+        WebkitBackdropFilter: "blur(4px)", // Ensures Safari support
+        borderRadius: "24px", // border-radius: 24px
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
@@ -61,10 +64,10 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          What I have done so far
+          -----------
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
-          Work Experience.
+          Experiences
         </h2>
       </motion.div>
 

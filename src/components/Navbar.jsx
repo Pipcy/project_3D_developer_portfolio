@@ -103,14 +103,159 @@
 
 //-----
 
+//=======================================================
+
+// import React, { useEffect, useState } from "react";
+// import { Link } from "react-router-dom";
+// import { navLinks } from "../constants"; // Ensure this has the correct sections and IDs
+// import { logo2, linkedin, github } from "../assets";
+// // import ThemeToggle from "../Theme";
+// import { Sun, Moon } from "lucide-react";
+
+// const Navbar = () => {
+//   const [active, setActive] = useState("");
+//   const [scrolled, setScrolled] = useState(false);
+
+//   // Handle scroll behavior for sticky navbar
+//   useEffect(() => {
+//     const handleScroll = () => {
+//       const scrollTop = window.scrollY;
+//       setScrolled(scrollTop > 100);
+//     };
+
+//     window.addEventListener("scroll", handleScroll);
+//     return () => window.removeEventListener("scroll", handleScroll);
+//   }, []);
+
+//   // Set up Intersection Observer to detect when sections are in view
+//   useEffect(() => {
+//     const sections = navLinks.map((nav) => document.getElementById(nav.id));
+//     const observerOptions = {
+//       rootMargin: "0px 0px -20% 0px",
+//       threshold: 0.5,
+//     };
+
+//     const observer = new IntersectionObserver((entries) => {
+//       entries.forEach((entry) => {
+//         if (entry.isIntersecting) {
+//           setActive(entry.target.id);
+//         }
+//       });
+//     }, observerOptions);
+
+//     sections.forEach((section) => {
+//       if (section) observer.observe(section);
+//     });
+
+//     return () => {
+//       sections.forEach((section) => {
+//         if (section) observer.unobserve(section);
+//       });
+//     };
+//   }, []);
+
+//   return (   
+//     <>
+//     {/*Theme Toggle Button*/}
+//     <div className="fixed top-5 right-5 z-50">
+//       <button
+//         onClick={() => {
+//       document.documentElement.classList.toggle('dark');
+//         }}
+//         className="bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-600 transition duration-300"
+//       >
+//         Toggle
+//       </button>
+//     </div>
+
+//       <nav
+//         className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
+//           scrolled ? "shadow-lg" : ""
+//         }`}
+//       >
+//         <div className="flex flex-col items-center w-full flex-1">
+//           <Link
+//             to="/"
+//             className="flex items-center gap-2 mb-10"
+//             onClick={() => {
+//               setActive("");
+//               window.scrollTo(0, 0);
+//             }}
+//           >
+//             <img src={logo2} alt="logo" className="w-12 h-12 object-contain" />
+//           </Link>
+
+//           <ul className="list-none flex flex-col gap-10 w-full text-center flex-grow">
+//             {navLinks.map((nav) => (
+//               <li
+//                 key={nav.id}
+//                 className={`relative flex justify-center items-center h-20 w-full ${
+//                   active === nav.id ? "text-white" : "text-secondary"
+//                 } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
+//                 onClick={() => {
+//                   setActive(nav.id);
+//                   const section = document.getElementById(nav.id);
+//                   if (section) {
+//                     section.scrollIntoView({ behavior: "smooth" });
+//                   }
+//                 }}
+//               >
+//                 <Link
+//                   to={`#${nav.id}`}
+//                   className="transform -rotate-90 block w-full text-center h-full flex items-center justify-center"
+//                 >
+//                   {nav.title}
+//                 </Link>
+//               </li>
+//             ))}
+//           </ul>
+//         </div>
+
+//         {/* Social Buttons */}
+//         <div className="flex flex-col gap-4 mb-5">
+//           <a
+//             href="https://www.linkedin.com/in/pippi-pi/"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-blue-600 transition duration-300"
+//           >
+//             <img src={linkedin} alt="LinkedIn" className="w-6 h-6" />
+//           </a>
+//           <a
+//             href="https://github.com/Pipcy"
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+//           >
+//             <img src={github} alt="GitHub" className="w-6 h-6" />
+//           </a>
+//         </div>
+//         {/* <div className="bg-white/20 backdrop-blur-md p-4 rounded-lg shadow-lg">
+//           Matte Glass Effect
+//         </div> */}
+
+        
+//       </nav>
+//     </>
+//   );
+// };
+
+// export default Navbar;
+
+//======
+
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "../constants"; // Ensure this has the correct sections and IDs
-import { logo2 } from "../assets";
+import { logo2, linkedin, github } from "../assets";
+import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [scrolled, setScrolled] = useState(false);
+  const [darkMode, setDarkMode] = useState(
+    document.documentElement.classList.contains("dark")
+  );
 
   // Handle scroll behavior for sticky navbar
   useEffect(() => {
@@ -127,75 +272,111 @@ const Navbar = () => {
   useEffect(() => {
     const sections = navLinks.map((nav) => document.getElementById(nav.id));
     const observerOptions = {
-      rootMargin: "0px 0px -20% 0px", // The section needs to be 50% in view before being considered "active"
-      threshold: 0.5, // Trigger when 50% of the section is visible
+      rootMargin: "0px 0px -20% 0px",
+      threshold: 0.5,
     };
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          setActive(entry.target.id); // Update active state when section comes into view
+          setActive(entry.target.id);
         }
       });
     }, observerOptions);
 
-    // Observe each section
     sections.forEach((section) => {
       if (section) observer.observe(section);
     });
 
     return () => {
-      // Clean up observer when component unmounts
       sections.forEach((section) => {
         if (section) observer.unobserve(section);
       });
     };
   }, []);
 
-  return (
-    <nav
-      className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
-        scrolled ? "shadow-lg" : ""
-      }`}
-    >
-      <div className="flex flex-col items-center w-full">
-        <Link
-          to="/"
-          className="flex items-center gap-2 mb-10"
-          onClick={() => {
-            setActive("");
-            window.scrollTo(0, 0); // Scroll to top when clicking on logo
-          }}
-        >
-          <img src={logo2} alt="logo" className="w-12 h-12 object-contain" />
-        </Link>
+  // Toggle dark mode
+  const toggleTheme = () => {
+    document.documentElement.classList.toggle("dark");
+    setDarkMode(!darkMode);
+  };
 
-        <ul className="list-none flex flex-col gap-10 w-full text-center">
-          {navLinks.map((nav) => (
-            <li
-              key={nav.id}
-              className={`relative flex justify-center items-center h-20 w-full ${
-                active === nav.id ? "text-white" : "text-secondary"
-              } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
-              onClick={() => {
-                setActive(nav.id); // Update active state when clicking
-                const section = document.getElementById(nav.id);
-                if (section) {
-                  section.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              <Link
-                to={`#${nav.id}`}
-                className="transform -rotate-90 block w-full text-center h-full flex items-center justify-center"
-              >
-                {nav.title}
-              </Link>
-            </li>
-          ))}
-        </ul>
+  return (   
+    <>
+      {/* Theme Toggle Button */}
+      <div className="fixed top-10 right-10 z-50">
+        <button
+          onClick={toggleTheme}
+          className="bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-600 transition duration-300 flex items-center justify-center w-10 h-10"
+        >
+          {darkMode ? <Sun size={30} /> : <Moon size={30} />}
+        </button>
       </div>
-    </nav>
+
+      <nav
+        className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
+          scrolled ? "{/*shadow-lg*/}" : ""
+        }`}
+      >
+        <div className="flex flex-col items-center w-full flex-1">
+          <Link
+            to="/"
+            className="flex items-center gap-2 mb-10"
+            onClick={() => {
+              setActive("");
+              window.scrollTo(0, 0);
+            }}
+          >
+            <img src={logo2} alt="logo" className="w-12 h-12 object-contain" />
+          </Link>
+
+          <ul className="list-none flex flex-col gap-10 w-full text-center flex-grow">
+            {navLinks.map((nav) => (
+              <li
+                key={nav.id}
+                className={`relative flex justify-center items-center h-20 w-full ${
+                  active === nav.id ? "text-white" : "text-secondary"
+                } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
+                onClick={() => {
+                  setActive(nav.id);
+                  const section = document.getElementById(nav.id);
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                <Link
+                  to={`#${nav.id}`}
+                  className="transform -rotate-90 block w-full text-center h-full flex items-center justify-center"
+                >
+                  {nav.title}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* Social Buttons */}
+        <div className="flex flex-col gap-4 mb-5">
+          <a
+            href="https://www.linkedin.com/in/pippi-pi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-blue-600 transition duration-300"
+          >
+            <img src={linkedin} alt="LinkedIn" className="w-6 h-6" />
+          </a>
+          <a
+            href="https://github.com/Pipcy"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+          >
+            <img src={github} alt="GitHub" className="w-6 h-6" />
+          </a>
+        </div>
+      </nav>
+    </>
   );
 };
 

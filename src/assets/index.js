@@ -1,5 +1,7 @@
 import logo from "./logo.svg";
 import logo2 from "./logo-white.svg";
+import linkedin from "./linkedin.png";
+import video from "./video.mp4";
 
 import backend from "./backend.png";
 import creator from "./creator.png";
@@ -37,6 +39,8 @@ import tripguide from "./tripguide.png";
 export {
   logo,
   logo2,
+  linkedin,
+  video,
   backend,
   creator,
   mobile,

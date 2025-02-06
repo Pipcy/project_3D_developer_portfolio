@@ -1,0 +1,14 @@
+/* src/styles/global.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Default Dark Mode */
+body {
+  @apply bg-black-100 text-white transition-colors duration-300;
+}
+
+/* Light Mode */
+.dark body {
+  @apply bg-white text-black;
+}
