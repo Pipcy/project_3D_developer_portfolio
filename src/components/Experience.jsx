@@ -16,10 +16,11 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "rgba(255, 255, 255, 0.05)",
+        background: "rgba(255, 255, 255, 0.1)",
         color: "#fff",
-        backdropFilter: "blur(4px)", // Equivalent to backdrop-blur-sm
-        WebkitBackdropFilter: "blur(4px)", // Ensures Safari support
+        backdropFilter: "blur(8px)", // Equivalent to backdrop-blur-sm
+        WebkitBackdropFilter: "blur(8px)", // Ensures Safari support
+        boxShadow:"inset 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2)",
         borderRadius: "24px", // border-radius: 24px
       }}
       contentArrowStyle={{ borderRight: "7px solid  #232631" }}

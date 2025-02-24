@@ -102,7 +102,8 @@
 //=====================================================
 
 import React from "react";
-import Tilt from "react-tilt";
+import { useRef } from 'react';
+//import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
 import { styles } from "../styles";
@@ -120,15 +121,20 @@ const ProjectCard = ({
   source_code_link,
 }) => {
   return (
-    <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-      <Tilt
+    <motion.div 
+      variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+      whileHover={{ scale: 1.03 }} // Enlarges on hover
+      transition={{ type: "spring", stiffness: 100 }} //bouncy effect
+      >
+     <div className="p-5 rounded-2xl sm:w-[360px] w-full bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]">
+      {/* <Tilt // Tilt is moving around the hovering mouse very distractive
         options={{
           max: 45,
           scale: 1,
           speed: 450,
         }}
         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full bg-white/5 backdrop-blur-sm shadow-lg'
-      >
+      > */}
         <div className='relative w-full h-[230px]'>
           <img
             src={image}
@@ -165,12 +171,26 @@ const ProjectCard = ({
             </p>
           ))}
         </div>
-      </Tilt>
+      </div>
+      {/* </Tilt> */}
     </motion.div>
   );
 };
 
 const Works = () => {
+  const scrollContainerRef = useRef(null); 
+
+  //Function to handle the scroll on button click
+  const scroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300; // Adjust scroll distance
+      scrollContainerRef.current.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
     <div className='relative w-full h-full'>
       {/* Background Video */}
@@ -195,19 +215,39 @@ const Works = () => {
             variants={fadeIn("", "", 0.1, 1)}
             className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
           >
-            Following projects showcases my skills and experience through
-            real-world examples of my work. Each project is briefly described with
-            links to code repositories and live demos in it. It reflects my
-            ability to solve complex problems, work with different technologies,
-            and manage projects effectively.
+            Explore some works I've done over the years.
           </motion.p>
         </div>
 
-        <div className='mt-20 flex flex-wrap gap-7'>
+        {/* Horizontal scrolling container */}
+        <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidde gap-7' ref={scrollContainerRef}>
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
         </div>
+
+        {/* Arrow Buttons at the bottom */}
+        <div className="flex justify-between mt-5">
+          {/* Left Arrow Button */}
+          <button
+            onClick={() => scroll('left')}
+            className='bg-black/40 rounded-full p-3 text-white'>
+            &lt;
+          </button>
+
+          {/* Right Arrow Button */}
+          <button
+            onClick={() => scroll('right')}
+            className='bg-black/40 rounded-full p-3 text-white'>
+            &gt;
+          </button>
+        </div>
+
+        {/* <div className='mt-20 flex overflow-x-auto gap-7'>
+          {projects.map((project, index) => (
+            <ProjectCard key={`project-${index}`} index={index} {...project} />
+          ))}
+        </div> */}
       </div>
     </div>
   );

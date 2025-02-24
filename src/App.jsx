@@ -54,10 +54,11 @@
 
 
 import { useState } from "react";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, VideoCanvas } from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas } from "./components";
 import LoadingPage from './components/LoadingPage'; // Import the LoadingPage component
+import ContactPage from './components/ContactPage'; // Import the ContactPage component
 
 const App = () => {
   const [entered, setEntered] = useState(false);  // State to track if the user has clicked "Enter"
@@ -69,22 +70,35 @@ const App = () => {
         {!entered ? (
           <LoadingPage onEnter={() => setEntered(true)} />
         ) : (
-          <div className='relative z-0 {/*bg-[#ffffff]*/}'>
-            <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
-              <Navbar />
-              <Hero />
-            </div>
-            {/* <About /> */}
-            <Works />
-            <Experience />
-            {/* <Tech /> */}
-            {/* <Feedbacks /> */}
-            <div className='relative z-0'>
-              <Contact />
-            </div>
-            <StarsCanvas />
-            {/* <VideoCanvas /> */}
-        </div>
+          <>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={
+              <div className='relative z-0 {/*bg-[#ffffff]*/}'>
+                <div className="absolute inset-0 bg-black/15 backdrop-blur-md z-0"></div> {/*matte black background*/}
+                <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
+                  <Hero />
+                </div>
+                
+                <Works />
+                <Experience />
+                <About />
+                {/* <Tech /> */}
+                {/* <Feedbacks /> */}
+                <div className='relative z-0'>
+                  <Contact />
+                </div>
+                <StarsCanvas />
+                <FloatingBlocksCanvas />
+                
+                {/* <VideoCanvas /> */}
+              </div>
+            }/>
+
+            <Route path="/contact" element={<ContactPage />}/>
+
+          </Routes>
+        </>
         )}
       </div>
     </BrowserRouter>

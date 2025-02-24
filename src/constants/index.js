@@ -23,16 +23,22 @@ import {
   jobit,
   tripguide,
   threejs,
+  universal,
+  microsoft,
 } from "../assets";
 
 export const navLinks = [
   {
-    id: "about",
-    title: "About",
+    id: "projects",
+    title: "Projects",
   },
   {
     id: "work",
     title: "Work",
+  },
+  {
+    id: "about",
+    title: "About",
   },
   {
     id: "contact",
@@ -118,8 +124,8 @@ const experiences = [
   {
     title: "R&D Software Engineering Intern",
     company_name: "Universal Creative",
-    icon: starbucks,
-    iconBg: "#383E56",
+    icon: universal,
+    iconBg: "#ffffff",
     date: "January 2024 - August 2024",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
@@ -131,8 +137,8 @@ const experiences = [
   {
     title: "Software Engineering Intern (Incoming)",
     company_name: "Microsoft",
-    icon: tesla,
-    iconBg: "#E6DEDD",
+    icon: microsoft,
+    iconBg: "#ffffff",
     date: "May 2025 - August 2025",
     points: [
       "Developing and maintaining web applications using React.js and other related technologies.",
@@ -172,20 +178,20 @@ const testimonials = [
 
 const projects = [
   {
-    name: "Car Rent",
+    name: "Gesture Controlled Assistive Car",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
       {
-        name: "react",
+        name: "OpenCV",
         color: "blue-text-gradient",
       },
       {
-        name: "mongodb",
+        name: "Raspberry Pi",
         color: "green-text-gradient",
       },
       {
-        name: "tailwind",
+        name: "Arduino",
         color: "pink-text-gradient",
       },
     ],
@@ -214,9 +220,9 @@ const projects = [
     source_code_link: "https://github.com/",
   },
   {
-    name: "Trip Guide",
+    name: "More Projects",
     description:
-      "A comprehensive travel booking platform that allows users to book flights, hotels, and rental cars, and offers curated recommendations for popular destinations.",
+      "Click to view all of my projects.",
     tags: [
       {
         name: "nextjs",

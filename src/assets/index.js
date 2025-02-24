@@ -1,5 +1,7 @@
 import logo from "./logo.svg";
 import logo2 from "./logo-white.svg";
+import logo3 from "./logo3.svg";
+import logo4 from "./logo-pi-circle.svg";
 import linkedin from "./linkedin.png";
 import video from "./video.mp4";
 
@@ -29,6 +31,8 @@ import meta from "./company/meta.png";
 import shopify from "./company/shopify.png";
 import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
+import universal from "./company/universal.svg";
+import microsoft from "./company/microsoft.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -39,6 +43,8 @@ import tripguide from "./tripguide.png";
 export {
   logo,
   logo2,
+  logo3,
+  logo4,
   linkedin,
   video,
   backend,
@@ -68,4 +74,6 @@ export {
   carrent,
   jobit,
   tripguide,
+  universal,
+  microsoft,
 };

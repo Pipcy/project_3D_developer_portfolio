@@ -17,7 +17,7 @@ const Stars = (props) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color='#f44336'
+          color='#58ff33'
           size={0.002}
           sizeAttenuation={true}
           depthWrite={false}
@@ -34,8 +34,8 @@ const StarsCanvas = () => {
         <Suspense fallback={null}>
           <Stars />
         </Suspense>
-
         <Preload all />
+       
       </Canvas>
     </div>
   );

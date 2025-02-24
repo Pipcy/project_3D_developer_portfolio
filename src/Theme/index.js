@@ -3,3 +3,7 @@
 
 // export { ThemeContext };
 // export { ThemeToggle };
+
+import global from "./global";
+
+export { global };

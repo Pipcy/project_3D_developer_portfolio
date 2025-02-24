@@ -70,7 +70,7 @@ const Contact = () => {
     >
       <motion.div
         variants={slideIn("left", "tween", 0.2, 1)}
-        className='flex-[0.75] p-8 rounded-3xl bg-white/5 backdrop-blur-sm shadow-lg'
+        className={styles.lightGlassEffect + "flex-[0.75] p-8 rounded-3xl "}
       >
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadText}>Contact.</h3>

@@ -12,3 +12,7 @@ body {
 .dark body {
   @apply bg-white text-black;
 }
+
+.glass-effect {
+  @apply bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)] rounded-2xl p-5;
+}
