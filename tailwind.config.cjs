@@ -22,7 +22,7 @@ module.exports = {
         textLight: "#000000", // Text color for light mode
 
         // Dark mode colors
-        'primary-dark': "#121212", // Dark background color
+        'primary-dark': "#16032e", // Dark background color
         'secondary-dark': "#1f1f1f", // Dark background for secondary
         'tertiary-dark': "#151030", // Dark tertiary color
         'text-dark': "#e5e7eb", // Text color for dark mode

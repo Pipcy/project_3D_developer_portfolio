@@ -58,7 +58,7 @@ function LoadingPage({ onEnter }) {
   }, []);
 
   return (
-    <div className='flex flex-col items-center justify-center h-screen bg-gray-900 text-white'>
+    <div className='flex flex-col items-center justify-center h-screen primary-dark text-white'>
       <h1 className='text-4xl mb-6 font-semibold tracking-tight'>PIPPI PI</h1>
       <div 
         className='relative w-56 h-12 rounded-full bg-white/20 overflow-hidden shadow-md' 

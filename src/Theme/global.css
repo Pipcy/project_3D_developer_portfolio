@@ -5,7 +5,7 @@
 
 /* Default Dark Mode */
 body {
-  @apply bg-black-100 text-white transition-colors duration-300;
+  @apply bg-black-100 text-white transition-colors duration-700;
 }
 
 /* Light Mode */

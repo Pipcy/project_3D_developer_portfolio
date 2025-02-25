@@ -2,7 +2,15 @@ import logo from "./logo.svg";
 import logo2 from "./logo-white.svg";
 import logo3 from "./logo3.svg";
 import logo4 from "./logo-pi-circle.svg";
+import logoPurple from "./logo-purple.svg";
+
+import sunBlack from "./sun-black.svg";
+import sunWhite from "./sun-white.svg";
+
+
 import linkedin from "./linkedin.png";
+import linkedinBlack from "./linkedin-black.png";
+import linkedinWhite from "./linkedin-white.png";
 import video from "./video.mp4";
 
 import backend from "./backend.png";
@@ -10,6 +18,8 @@ import creator from "./creator.png";
 import mobile from "./mobile.png";
 import web from "./web.png";
 import github from "./github.png";
+import githubBlack from "./github-black.png";
+import githubWhite from "./github-white.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 
@@ -45,13 +55,20 @@ export {
   logo2,
   logo3,
   logo4,
+  logoPurple,
+  sunBlack,
+  sunWhite,
   linkedin,
+  linkedinBlack,
+  linkedinWhite,
   video,
   backend,
   creator,
   mobile,
   web,
   github,
+  githubWhite,
+  githubBlack,
   menu,
   close,
   css,

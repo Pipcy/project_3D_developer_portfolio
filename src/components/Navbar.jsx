@@ -247,7 +247,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "../constants"; // Ensure this has the correct sections and IDs
-import { logo2, logo3, linkedin, github } from "../assets";
+import { logo2, logo3, logoPurple, linkedin, linkedinBlack,linkedinWhite, github, githubWhite, githubBlack,sunBlack,sunWhite } from "../assets";
 import { Sun, Moon } from "lucide-react";
 
 const Navbar = () => {
@@ -256,6 +256,7 @@ const Navbar = () => {
   const [darkMode, setDarkMode] = useState(
     document.documentElement.classList.contains("dark")
   );
+  const [hovered, setHovered] = useState(false);
 
   // Handle scroll behavior for sticky navbar
   useEffect(() => {
@@ -307,9 +308,9 @@ const Navbar = () => {
       <div className="fixed top-10 right-10 z-50">
         <button
           onClick={toggleTheme}
-          className="bg-gray-800 text-white p-2 rounded-full shadow-md hover:bg-gray-600 transition duration-300 flex items-center justify-center w-10 h-10"
+          className="text-white p-2 rounded-full transition duration-300 flex items-center justify-center w-10 h-10" //bg-gray-800 hover:bg-gray-600 shadow-md
         >
-          {darkMode ? <Sun size={30} /> : <Moon size={30} />}
+          {darkMode ? <Sun size={40} color="black" /> : <Moon size={40} />}
         </button>
       </div>
 
@@ -326,8 +327,11 @@ const Navbar = () => {
               setActive("");
               window.scrollTo(0, 0);
             }}
+            onMouseEnter={() => setHovered(true)}
+            onMouseLeave={() => setHovered(false)}
           >
-            <img src={logo3} alt="logo" className="w-12 h-12 object-contain" />
+            
+            <img src={hovered? logoPurple : logo3} alt="logo" className="w-12 h-12 object-contain" />
           </Link>
 
           <ul className="list-none flex flex-col gap-10 w-full text-center flex-grow">
@@ -336,7 +340,7 @@ const Navbar = () => {
                 key={nav.id}
                 className={`relative flex justify-center items-center h-20 w-full ${
                   active === nav.id ? "text-white" : "text-secondary"
-                } hover:text-white text-lg font-medium cursor-pointer transition duration-200`}
+                } hover:text-purple-300 text-lg font-medium cursor-pointer transition duration-200`}
                 onClick={() => {
                   setActive(nav.id);
                   const section = document.getElementById(nav.id);
@@ -367,17 +371,17 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/pippi-pi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-blue-600 transition duration-300"
+            className="w-12 h-12 flex justify-center items-center rounded-full hover:bg-purple-300 transition duration-300" //bg-gray-800
           >
-            <img src={linkedin} alt="LinkedIn" className="w-6 h-6" />
+            <img src={darkMode ? linkedinBlack : linkedinWhite} alt="LinkedIn" className="w-6 h-6" />
           </a>
           <a
             href="https://github.com/Pipcy"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex justify-center items-center bg-gray-800 rounded-full hover:bg-gray-600 transition duration-300"
+            className="w-12 h-12 flex justify-center items-center rounded-full hover:bg-purple-300 transition duration-300" //bg-gray-800
           >
-            <img src={github} alt="GitHub" className="w-6 h-6" />
+            <img src={darkMode ? githubBlack : githubWhite} alt="GitHub" className="w-6 h-6" />
           </a>
         </div>
       </nav>

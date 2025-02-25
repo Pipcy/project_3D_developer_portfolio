@@ -11,7 +11,7 @@ const styles = {
   sectionHeadText:
     "text-secondary dark:text-secondary-dark font-black md:text-[60px] sm:text-[50px] xs:text-[40px] text-[30px]",
   sectionSubText:
-    "text-tertiary dark:text-tertiary-dark sm:text-[18px] text-[14px] text-secondary uppercase tracking-wider",
+    "text-tertiary dark:text-tertiary-dark sm:text-[18px] text-[14px] uppercase tracking-wider",
     
   glassEffect: 
     "bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)] rounded-2xl p-5",

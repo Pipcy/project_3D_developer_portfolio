@@ -75,7 +75,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={
               <div className='relative z-0 {/*bg-[#ffffff]*/}'>
-                <div className="absolute inset-0 bg-black/15 backdrop-blur-md z-0"></div> {/*matte black background*/}
+                <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
                 <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
                   <Hero />
                 </div>

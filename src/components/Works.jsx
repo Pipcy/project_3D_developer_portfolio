@@ -123,7 +123,7 @@ const ProjectCard = ({
   return (
     <motion.div 
       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
-      whileHover={{ scale: 1.03 }} // Enlarges on hover
+      whileHover={{ scale: 1.0 }} // Enlarges on hover, none
       transition={{ type: "spring", stiffness: 100 }} //bouncy effect
       >
      <div className="p-5 rounded-2xl sm:w-[360px] w-full bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]">
@@ -220,7 +220,7 @@ const Works = () => {
         </div>
 
         {/* Horizontal scrolling container */}
-        <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidde gap-7' ref={scrollContainerRef}>
+        <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidden gap-7' ref={scrollContainerRef}>
           {projects.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
