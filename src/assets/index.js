@@ -13,6 +13,10 @@ import linkedinBlack from "./linkedin-black.png";
 import linkedinWhite from "./linkedin-white.png";
 import video from "./video.mp4";
 
+import buWhite from "./bu-white.png";
+import buBlack from "./bu-black.png";
+import buRed from "./bu-red.png";
+
 import backend from "./backend.png";
 import creator from "./creator.png";
 import mobile from "./mobile.png";
@@ -48,6 +52,8 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
+import proj1_img1 from "./projects/bg-face.png";
+
 
 
 export {
@@ -62,6 +68,9 @@ export {
   linkedinBlack,
   linkedinWhite,
   video,
+  buWhite,
+  buBlack,
+  buRed,
   backend,
   creator,
   mobile,
@@ -93,4 +102,5 @@ export {
   tripguide,
   universal,
   microsoft,
+  proj1_img1
 };

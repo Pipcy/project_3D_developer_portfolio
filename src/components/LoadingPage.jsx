@@ -41,7 +41,7 @@ import React, { useState, useEffect } from 'react';
 
 function LoadingPage({ onEnter }) {
   const [progress, setProgress] = useState(0);
-  const loadingTime = 3000; // 3 seconds
+  const loadingTime = 1000; // 3 seconds
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -64,11 +64,12 @@ function LoadingPage({ onEnter }) {
         className='relative w-56 h-12 rounded-full bg-white/20 overflow-hidden shadow-md' 
       >
         <div
-          className='absolute top-0 left-0 h-full bg-white transition-all ease-in-out'
+          className='absolute top-0 left-0 h-full bg-white transition-all ease-in-out' 
           style={{ width: `${progress}%` }}
         />
         <button
-          className={`absolute top-0 left-0 w-full h-full text-black font-medium transition duration-300 ease-in-out ${progress < 100 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:bg-gray-200 active:scale-95'}`}
+          className={`bg-white/10 backdrop-blur-lg absolute top-0 left-0 w-full h-full text-black font-medium transition duration-300 ease-in-out ${progress < 100 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:bg-gray-300 active:scale-95'}`}
+          //bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]
           onClick={progress >= 100 ? onEnter : null}
           disabled={progress < 100}
         >

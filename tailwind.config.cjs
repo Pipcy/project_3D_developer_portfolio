@@ -6,13 +6,14 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        //theses does not apply
         // primary: "#121212",
         // secondary: "#aaa6c3",
         // tertiary: "#151030",
         "black-100": "#100d25",
         "black-200": "#090325",
         "white-100": "#f3f3f3",
-        // textLight: '#ffffff', // text color for dark mode
+        //'textLight' : '#ff244f', // text color for dark mode
         // textDark: '#e5e7eb', // .. light ..
         
         // Light mode colors
@@ -22,10 +23,13 @@ module.exports = {
         textLight: "#000000", // Text color for light mode
 
         // Dark mode colors
-        'primary-dark': "#16032e", // Dark background color
+        'primary-dark': "#46374", // Dark background color
         'secondary-dark': "#1f1f1f", // Dark background for secondary
         'tertiary-dark': "#151030", // Dark tertiary color
-        'text-dark': "#e5e7eb", // Text color for dark mode
+
+        //active
+        'textDark': "#000000", // dark Text color for light mode
+        'textLight': "#ffffff", // light Text color for dark mode
       },
       boxShadow: {
         card: "0px 35px 120px -15px #211e35",

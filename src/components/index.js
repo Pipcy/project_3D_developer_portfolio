@@ -8,6 +8,8 @@ import Works from "./Works";
 import Feedbacks from "./Feedbacks";
 import Contact from "./Contact";
 import CanvasLoader from "./Loader";
+import Footer from "./Footer";
+import ProjectPage from "./ProjectPage";
 // import LoadingPage from "./LoadingPage";
 
 
@@ -27,6 +29,8 @@ export {
   StarsCanvas,
   KnittedTorus,
   VideoCanvas,
-  FloatingBlocksCanvas
+  FloatingBlocksCanvas,
+  Footer,
+  ProjectPage
   // LoadingPage
 };

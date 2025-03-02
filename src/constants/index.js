@@ -25,6 +25,7 @@ import {
   threejs,
   universal,
   microsoft,
+  proj1_img1,
 } from "../assets";
 
 export const navLinks = [
@@ -179,6 +180,9 @@ const testimonials = [
 const projects = [
   {
     name: "Gesture Controlled Assistive Car",
+    date: "March 2025",
+    company: "Tech Corp",
+    position: "Lead Developer",
     description:
       "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
@@ -195,51 +199,37 @@ const projects = [
         color: "pink-text-gradient",
       },
     ],
-    image: carrent,
+    images: [
+      proj1_img1,
+    ],
     source_code_link: "https://github.com/",
   },
   {
-    name: "Job IT",
+    name: "22222Gesture Controlled Assistive Car",
+    date: "March 2025",
+    company: "Tech Corp",
+    position: "Lead Developer",
     description:
-      "Web application that enables users to search for job openings, view estimated salary ranges for positions, and locate available jobs based on their current location.",
+      "Web-based platform that allows users to search, book, and manage car rentals from various providers, providing a convenient and efficient solution for transportation needs.",
     tags: [
       {
-        name: "react",
+        name: "OpenCV",
         color: "blue-text-gradient",
       },
       {
-        name: "restapi",
+        name: "Raspberry Pi",
         color: "green-text-gradient",
       },
       {
-        name: "scss",
+        name: "Arduino",
         color: "pink-text-gradient",
       },
     ],
-    image: jobit,
-    source_code_link: "https://github.com/",
-  },
-  {
-    name: "More Projects",
-    description:
-      "Click to view all of my projects.",
-    tags: [
-      {
-        name: "nextjs",
-        color: "blue-text-gradient",
-      },
-      {
-        name: "supabase",
-        color: "green-text-gradient",
-      },
-      {
-        name: "css",
-        color: "pink-text-gradient",
-      },
+    images: [
+      proj1_img1,
     ],
-    image: tripguide,
     source_code_link: "https://github.com/",
-  },
+  }
 ];
 
 export { services, technologies, experiences, testimonials, projects };

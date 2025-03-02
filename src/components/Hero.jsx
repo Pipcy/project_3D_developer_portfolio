@@ -20,9 +20,10 @@ const Hero = () => {
           <h1 className={`${styles.heroHeadText}`}>
             PIPPI PI {/* <span className='text-[#915EFF]'>Pippi</span> */}
           </h1>
-          <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-            Computer Engineer <br className='sm:block hidden' />
-            Prototyper, Game Designer
+          <p className={`${styles.heroSubText} mt-2`}>
+            Computer Engineer, <br className='sm:block hidden' />
+            Prototyper, Game Designer, <br className='sm:block hidden' />
+            Artist
           </p>
         </div>
       </div>

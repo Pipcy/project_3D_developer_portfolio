@@ -56,9 +56,10 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas } from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage } from "./components";
 import LoadingPage from './components/LoadingPage'; // Import the LoadingPage component
 import ContactPage from './components/ContactPage'; // Import the ContactPage component
+import { ThemeProvider } from "./Theme/ThemeContext";
 
 const App = () => {
   const [entered, setEntered] = useState(false);  // State to track if the user has clicked "Enter"
@@ -78,24 +79,42 @@ const App = () => {
                 <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
                 <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
                   <Hero />
-                </div>
-                
+                </div>                
                 <Works />
                 <Experience />
                 <About />
+                
                 {/* <Tech /> */}
                 {/* <Feedbacks /> */}
-                <div className='relative z-0'>
+                {/* <div className='relative z-0'>
                   <Contact />
-                </div>
+                </div> */}
+
+                <Footer />
+                
+
                 <StarsCanvas />
                 <FloatingBlocksCanvas />
-                
+               
                 {/* <VideoCanvas /> */}
               </div>
             }/>
 
-            <Route path="/contact" element={<ContactPage />}/>
+            {/* contact page - separate */}
+            <Route path="/contact" element={
+              <div className='relative z-0'>
+              <ContactPage />
+              <StarsCanvas />
+              </div>
+            }/>
+
+            {/* project page - separate */}
+            <Route path="/project2" element={
+              <div className='relative z-0'>
+              <ProjectPage />
+              
+              </div>
+            }/>
 
           </Routes>
         </>

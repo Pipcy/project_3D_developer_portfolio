@@ -23,8 +23,10 @@ const ExperienceCard = ({ experience }) => {
         boxShadow:"inset 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2)",
         borderRadius: "24px", // border-radius: 24px
       }}
-      contentArrowStyle={{ borderRight: "7px solid  #232631" }}
+      //contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
+      dateClassName='text-yellow-500 text-[14px] font-semibold'
+      
       iconStyle={{ background: experience.iconBg }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
@@ -37,9 +39,9 @@ const ExperienceCard = ({ experience }) => {
       }
     >
       <div>
-        <h3 className='text-white text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='text-yellow-200 text-[24px] font-bold'>{experience.title}</h3>
         <p
-          className='text-secondary text-[16px] font-semibold'
+          className='text-purple-600 text-[16px] font-semibold'
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -50,7 +52,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-white-100 text-[14px] pl-1 tracking-wider'
+            className='text-yellow-300 text-[14px] pl-1 tracking-wider'
           >
             {point}
           </li>
@@ -65,7 +67,7 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          -----------
+          Internship
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
           Experiences

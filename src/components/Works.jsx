@@ -117,7 +117,7 @@ const ProjectCard = ({
   name,
   description,
   tags,
-  image,
+  images,
   source_code_link,
 }) => {
   return (
@@ -137,7 +137,7 @@ const ProjectCard = ({
       > */}
         <div className='relative w-full h-[230px]'>
           <img
-            src={image}
+            src={images[0]}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl '
           />
@@ -157,10 +157,11 @@ const ProjectCard = ({
         </div>
 
         <div className='mt-5'>
-          <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-          <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+          <h3 className='font-bold text-[24px]'>{name}</h3>
+          <p className='mt-2 text-[14px]'>{description}</p>
         </div>
 
+        {/*  this is the hastage for software used
         <div className='mt-4 flex flex-wrap gap-2'>
           {tags.map((tag) => (
             <p
@@ -170,7 +171,7 @@ const ProjectCard = ({
               #{tag.name}
             </p>
           ))}
-        </div>
+        </div> */}
       </div>
       {/* </Tilt> */}
     </motion.div>
@@ -213,7 +214,7 @@ const Works = () => {
         <div className='w-full flex'>
           <motion.p
             variants={fadeIn("", "", 0.1, 1)}
-            className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
+            className='mt-3 text-[17px] max-w-3xl leading-[30px]' // text-secondary 
           >
             Explore some works I've done over the years.
           </motion.p>
@@ -231,14 +232,14 @@ const Works = () => {
           {/* Left Arrow Button */}
           <button
             onClick={() => scroll('left')}
-            className='bg-black/40 rounded-full p-3 text-white'>
+            className='bg-black/40 rounded-full p-3'>
             &lt;
           </button>
 
           {/* Right Arrow Button */}
           <button
             onClick={() => scroll('right')}
-            className='bg-black/40 rounded-full p-3 text-white'>
+            className='bg-black/40 rounded-full p-3'>
             &gt;
           </button>
         </div>
@@ -253,4 +254,4 @@ const Works = () => {
   );
 };
 
-export default SectionWrapper(Works, "");
+export default SectionWrapper(Works, "projects"); //inside "" is the thing for the navbar to highlight and link to the section

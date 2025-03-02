@@ -3,16 +3,40 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Default Dark Mode */
+/* thie code currently control the background color and text color of the website */
+
+/* Default light Mode 
 body {
+  @apply bg-white text-black transition-colors duration-700;
+}
+
+.dark body {
   @apply bg-black-100 text-white transition-colors duration-700;
 }
+*/
 
-/* Light Mode */
-.dark body {
-  @apply bg-white text-black;
+/* Theme Variables */
+:root {
+  /* Light Theme */
+  --background-color: white;
+  --text-color: black;
 }
 
+.dark {
+  /* Dark Theme */
+  --background-color: black;
+  --text-color: white;
+}
+
+/* Base Styles */
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 700ms, color 700ms;
+}
+
+
+/* Glass Effect */
 .glass-effect {
-  @apply bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)] rounded-2xl p-5;
+  @apply bg-white/10 dark:bg-black/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)] rounded-2xl p-5;
 }

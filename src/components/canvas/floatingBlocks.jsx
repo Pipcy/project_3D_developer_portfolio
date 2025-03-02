@@ -5,11 +5,11 @@ import * as THREE from "three";
 
 const NUM_BLOCKS = 50;
 const COLOR_PALETTE = [
-  new THREE.Color("#6930c3"),
-  new THREE.Color("#ffb7ff"),
-  new THREE.Color("#c879ff"),
-  new THREE.Color("#f28482"),
-  new THREE.Color("#47864"),
+  new THREE.Color("#FFAB98"),
+  new THREE.Color("#B3EDD7"),
+  new THREE.Color("#B0DAEB"),
+  new THREE.Color("#A467FF"),
+  new THREE.Color("#ECF19E"),
 ];
 
 const FloatingBlocks = () => {
