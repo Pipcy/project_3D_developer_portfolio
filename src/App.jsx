@@ -56,7 +56,7 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage } from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Navbar, NavbarSimple,Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage, AllProjects } from "./components";
 import LoadingPage from './components/LoadingPage'; // Import the LoadingPage component
 import ContactPage from './components/ContactPage'; // Import the ContactPage component
 import { ThemeProvider } from "./Theme/ThemeContext";
@@ -72,49 +72,63 @@ const App = () => {
           <LoadingPage onEnter={() => setEntered(true)} />
         ) : (
           <>
-          <Navbar />
+          
           <Routes>
             <Route path="/" element={
-              <div className='relative z-0 {/*bg-[#ffffff]*/}'>
-                <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
-                <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
-                  <Hero />
-                </div>                
-                <Works />
-                <Experience />
-                <About />
-                
-                {/* <Tech /> */}
-                {/* <Feedbacks /> */}
-                {/* <div className='relative z-0'>
-                  <Contact />
-                </div> */}
+              <>
+                <Navbar />
+                <div className='relative z-0 {/*bg-[#ffffff]*/}'>
+                  <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
+                  <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
+                    <Hero />
+                  </div>    
+                  <About />
+                  
+                  <Tech />            
+                  <Works />
+                  <Experience />
+                  
+                  {/* <Feedbacks /> */}
+                  {/* <div className='relative z-0'>
+                    <Contact />
+                  </div> */}
 
-                <Footer />
+                  <Footer />
+                  <StarsCanvas />
+                  <FloatingBlocksCanvas />
                 
-
-                <StarsCanvas />
-                <FloatingBlocksCanvas />
-               
-                {/* <VideoCanvas /> */}
-              </div>
+                  {/* <VideoCanvas /> */}
+                </div>
+              </>
             }/>
 
             {/* contact page - separate */}
             <Route path="/contact" element={
               <div className='relative z-0'>
-              <ContactPage />
-              <StarsCanvas />
+                <NavbarSimple />
+                <ContactPage />
+                <StarsCanvas />
               </div>
             }/>
 
-            {/* project page - separate */}
-            <Route path="/project2" element={
-              <div className='relative z-0'>
-              <ProjectPage />
-              
-              </div>
+
+          <Route path="/projects/:slug" element={<ProjectPage />} />
+
+            {/* all project page - separate */}
+            <Route path="/projects" element={
+              <>
+                <NavbarSimple />
+                <div className='relative z-0'>
+                  <AllProjects />
+                  <div className="flex flex-col">
+                      <Footer />
+                    </div>
+                  <StarsCanvas />
+                </div>
+              </>
             }/>
+
+
 
           </Routes>
         </>

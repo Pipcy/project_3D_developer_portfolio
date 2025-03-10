@@ -247,8 +247,8 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { navLinks } from "../constants"; // Ensure this has the correct sections and IDs
-import { logo2, logo3, logoPurple, linkedin, linkedinBlack,linkedinWhite, github, githubWhite, githubBlack,sunBlack,sunWhite } from "../assets";
-import { Sun, Moon, Paperclip, PauseOctagon } from "lucide-react";
+import { logoPurple, piLogoBlack, piLogoWhite, linkedin, linkedinBlack,linkedinWhite, github, githubWhite, githubBlack,sunBlack,sunWhite } from "../assets";
+import { Sun, Moon, Paperclip, FileDown, PauseOctagon } from "lucide-react";
 import { useTheme } from "../Theme/ThemeContext";
 
 const Navbar = () => {
@@ -317,7 +317,7 @@ const Navbar = () => {
       </div>
 
       <nav
-        className={`fixed -left-20 top-0 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
+        className={`fixed -left-20 top-5 h-full w-60 flex flex-col items-center py-5 z-20 transition-all duration-300 ${
           scrolled ? "{/*shadow-lg*/}" : ""
         }`}
       >
@@ -335,7 +335,12 @@ const Navbar = () => {
             onMouseLeave={() => setHovered(false)}
           >
             
-            <img src={hovered? logoPurple : logo3} alt="logo" className="w-12 h-12 object-contain" />
+            <img 
+              src={hovered? logoPurple : (theme === "dark" ? piLogoWhite : piLogoBlack)} 
+              alt="logo" 
+              className="w-10 h-10 object-contain" 
+            />
+
           </Link>
 
           {/* nav links */}
@@ -376,24 +381,32 @@ const Navbar = () => {
             href="https://www.linkedin.com/in/pippi-pi/"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex justify-center items-center rounded-full hover:bg-purple-300 transition duration-300" //bg-gray-800
+            className="w-12 h-12 flex justify-center items-center rounded-full transition duration-300
+              hover:shadow-purple-500 hover:shadow-md" //dark:hover:shadow-purple-500 dark:hover:shadow-md 
           >
             <img src={theme === "dark" ? linkedinWhite : linkedinBlack } alt="LinkedIn" className="w-6 h-6" />
           </a>
+
+
           <a
             href="https://github.com/Pipcy"
             target="_blank"
             rel="noopener noreferrer"
-            className="w-12 h-12 flex justify-center items-center rounded-full hover:bg-purple-300 transition duration-300" //bg-gray-800
+            className="w-12 h-12 flex justify-center items-center rounded-full transition duration-300       
+              hover:shadow-purple-500 hover:shadow-md" //dark:hover:shadow-purple-500 dark:hover:shadow-md 
           >
-            <img src={theme === "dark" ?  githubWhite : githubBlack} alt="GitHub" className="w-6 h-6" />
+            <img 
+              src={theme === "dark" ? githubWhite : githubBlack} alt="GitHub" className="w-6 h-6"/>
           </a>
+
+
           <a
             href="/resume_11_2_24.pdf" // Replace with the actual path to your resume file
             download="Resume_Pippi_Pi.pdf"
-            className="w-12 h-12 flex justify-center items-center rounded-full hover:bg-purple-300 transition duration-300" //bg-gray-800
+            className="w-12 h-12 flex justify-center items-center rounded-full transition duration-300
+              hover:shadow-purple-500 hover:shadow-md" //dark:hover:shadow-purple-500 dark:hover:shadow-md 
           >
-            {theme === "dark" ? <Paperclip size={30} /> : <Paperclip size={30} /> }
+            {theme === "dark" ? <FileDown size={30} /> : <FileDown size={30} /> }
           </a>
         </div>
       </nav>

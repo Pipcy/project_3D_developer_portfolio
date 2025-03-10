@@ -1,7 +1,8 @@
 const Footer = () => {
     return (
       <footer className="relative z-0 bg-gray-400/10 backdrop-blur-sm min-h-[150px] py-10 text-center">
-        <p className="text-sm">&copy; {new Date().getFullYear()} PIPPI. CRAFTED BY YOURS TRULY. ALL RIGHTS RESERVED.</p>
+        <p className="text-sm">&copy; {new Date().getFullYear()} PIPPI. ALL RIGHTS RESERVED.</p>
+        <p>  CRAFTED BY YOURS TRULY. FROM LITERAL CHICKEN SCRATCH.</p>
         <div className="flex justify-center gap-4 mt-2">
           {/* <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
             GitHub

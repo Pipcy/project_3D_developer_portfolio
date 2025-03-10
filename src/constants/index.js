@@ -4,31 +4,39 @@ import {
   creator,
   web,
   javascript,
-  typescript,
-  html,
-  css,
   reactjs,
-  redux,
   tailwind,
-  nodejs,
-  mongodb,
   git,
   figma,
   docker,
-  meta,
-  starbucks,
-  tesla,
-  shopify,
-  carrent,
-  jobit,
-  tripguide,
   threejs,
   universal,
   microsoft,
   proj1_img1,
+  cpp,
+  onshape,
+  opencv,
+  python,
+  tensorflow,
+  clogo,
+  blender,
+  maya,
+  linkedin,
+  unity,
+  unreal,
+  chatgpt,
+  azure,
+  raspberryPi,
+  arduino,
+  pytorch,
+  csp,
 } from "../assets";
 
 export const navLinks = [
+  {
+    id: "about",
+    title: "About",
+  },
   {
     id: "projects",
     title: "Projects",
@@ -36,10 +44,6 @@ export const navLinks = [
   {
     id: "work",
     title: "Work",
-  },
-  {
-    id: "about",
-    title: "About",
   },
   {
     id: "contact",
@@ -68,57 +72,105 @@ const services = [
 
 const technologies = [
   {
-    name: "HTML 5",
-    icon: html,
+    name: "Python",
+    icon: python,
+    tag: "language",
   },
   {
-    name: "CSS 3",
-    icon: css,
+    name: "Unreal Engine",
+    icon: unreal,
+    tag: "software",
+  },
+  {
+    name: "Unity",
+    icon: unity,
+    tag: "software",
+  },
+  {
+    name: "Blender",
+    icon: blender,
+    tag: "software",
+  },
+  {
+    name: "Maya",
+    icon: maya,
+    tag: "software",
+  },
+  {
+    name: "C++",
+    icon: cpp,
+    tag: "language",
+  },
+  {
+    name: "Onshape",
+    icon: onshape,
+    tag: "software",
+  },
+  {
+    name: "OpenCV",
+    icon: opencv,
+    tag: "framework",
+  },
+  {
+    name: "TensorFlow",
+    icon: tensorflow,
+    tag: "framework",
+  },
+  {
+    name: "C",
+    icon: clogo,
+    tag: "language",
+  },
+  {
+    name: "ChatGPT API",
+    icon: chatgpt,
+    tag: "framework",
+  },
+  {
+    name: "Azure API",
+    icon: azure,
+    tag: "framework",
+  },
+  {
+    name: "Raspberry Pi",
+    icon: raspberryPi,
+    tag: "software",
+  },
+  {
+    name: "Arduino",
+    icon: arduino,
+    tag: "software",
+  },
+  {
+    name: "PyTorch",
+    icon: pytorch,
+    tag: "framework",
+  },
+  {
+    name: "C#",
+    icon: csp,
+    tag: "language",
   },
   {
     name: "JavaScript",
     icon: javascript,
-  },
-  {
-    name: "TypeScript",
-    icon: typescript,
+    tag: "language",
   },
   {
     name: "React JS",
     icon: reactjs,
-  },
-  {
-    name: "Redux Toolkit",
-    icon: redux,
-  },
-  {
-    name: "Tailwind CSS",
-    icon: tailwind,
-  },
-  {
-    name: "Node JS",
-    icon: nodejs,
-  },
-  {
-    name: "MongoDB",
-    icon: mongodb,
-  },
-  {
-    name: "Three JS",
-    icon: threejs,
+    tag: "framework",
   },
   {
     name: "git",
     icon: git,
+    tag: "software",
   },
   {
     name: "figma",
     icon: figma,
-  },
-  {
-    name: "docker",
-    icon: docker,
-  },
+    tag: "software",
+  }
 ];
 
 const experiences = [
@@ -129,23 +181,17 @@ const experiences = [
     iconBg: "#ffffff",
     date: "January 2024 - August 2024",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Worked in ATI R&D (Advanced Technology Interactive), researched new interactive technology, contributed to design, iteration, and testing for blue-sky project for Universal park attraction innovation."
     ],
   },
   {
-    title: "Software Engineering Intern (Incoming)",
+    title: " (Incoming) Software Engineering Intern",
     company_name: "Microsoft",
     icon: microsoft,
     iconBg: "#ffffff",
     date: "May 2025 - August 2025",
     points: [
-      "Developing and maintaining web applications using React.js and other related technologies.",
-      "Collaborating with cross-functional teams including designers, product managers, and other developers to create high-quality products.",
-      "Implementing responsive design and ensuring cross-browser compatibility.",
-      "Participating in code reviews and providing constructive feedback to other developers.",
+      "Incoming intern for Microsoft Gaming Business Group."
     ],
   },
 ];

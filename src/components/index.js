@@ -10,7 +10,11 @@ import Contact from "./Contact";
 import CanvasLoader from "./Loader";
 import Footer from "./Footer";
 import ProjectPage from "./ProjectPage";
+import AllProjects from "./AllProjects";
+import NavbarSimple from './NavbarSimple';
 // import LoadingPage from "./LoadingPage";
+
+// import GooeyTooltip from './small-stuff';
 
 
 export {
@@ -31,6 +35,9 @@ export {
   VideoCanvas,
   FloatingBlocksCanvas,
   Footer,
-  ProjectPage
+  ProjectPage,
+  AllProjects,
+  NavbarSimple,
+  // GooeyTooltip
   // LoadingPage
 };

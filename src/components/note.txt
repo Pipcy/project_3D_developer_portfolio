@@ -1,0 +1,6 @@
+
+Projects Organization
+
+Works.jsx -> "featured projects" in home page
+ProjectPage.jsx -> individual project detail
+AllProjects.jsx -> all projects page

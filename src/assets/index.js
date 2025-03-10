@@ -1,8 +1,11 @@
+// logo
 import logo from "./logo.svg";
 import logo2 from "./logo-white.svg";
 import logo3 from "./logo3.svg";
 import logo4 from "./logo-pi-circle.svg";
 import logoPurple from "./logo-purple.svg";
+import piLogoBlack from "./pi-logo-black.svg";
+import piLogoWhite from "./pi-logo-white.svg";
 
 import sunBlack from "./sun-black.svg";
 import sunWhite from "./sun-white.svg";
@@ -53,6 +56,28 @@ import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
 import proj1_img1 from "./projects/bg-face.png";
+import proj2_img1 from "./projects/proj2_img1.png";
+import proj3_img1 from "./projects/proj3_img1.gif";
+
+//tech
+import clogo from "./tech/c-logo.png";
+import cpp from "./tech/cpp-logo.png";
+import onshape from "./tech/onshape-logo.png";
+import opencv from "./tech/opencv-logo.png";
+import python from "./tech/python-logo.png";
+import tensorflow from "./tech/tensorflow-logo.png";
+import blender from "./tech/blender.png";
+import maya from "./tech/maya.png";
+import unity from "./tech/unity.png";
+import unreal from "./tech/unreal.png";
+import chatgpt from "./tech/chatgpt.png";
+import azure from "./tech/azure.png";
+import raspberryPi from "./tech/raspberry-pi.svg";
+import arduino from "./tech/arduino.svg";
+import pytorch from "./tech/pytorch.png";
+import csp from "./tech/csp.png";
+
+
 
 
 
@@ -102,5 +127,25 @@ export {
   tripguide,
   universal,
   microsoft,
-  proj1_img1
+  proj1_img1,
+  proj2_img1,
+  proj3_img1,
+  clogo,
+  cpp,
+  onshape,
+  opencv,
+  python,
+  tensorflow,
+  blender,
+  maya,
+  unity,
+  unreal,
+  chatgpt,
+  azure,
+  raspberryPi,
+  arduino,
+  pytorch,
+  csp,
+  piLogoBlack,
+  piLogoWhite
 };

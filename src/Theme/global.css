@@ -15,17 +15,20 @@ body {
 }
 */
 
-/* Theme Variables */
+/* Theme Variables - seperate definition for different themes lives here */
 :root {
   /* Light Theme */
-  --background-color: white;
+  --background-color: rgb(245, 245, 247);
   --text-color: black;
+  --custom-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2);
+  --matte-glass: bg-black;
 }
 
 .dark {
   /* Dark Theme */
-  --background-color: black;
+  --background-color: rgb(18, 18, 18);
   --text-color: white;
+  --matte-glass: bg-white;
 }
 
 /* Base Styles */
@@ -33,10 +36,19 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   transition: background-color 700ms, color 700ms;
+  
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(255, 92, 138, 0.8); /* Change to your desired color */
+  color: white; /* Change text color if needed */
 }
 
 
-/* Glass Effect */
+
+/* Glass Effect - where is it used? */
 .glass-effect {
   @apply bg-white/10 dark:bg-black/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)] rounded-2xl p-5;
 }
+

@@ -16,16 +16,16 @@ const ExperienceCard = ({ experience }) => {
   return (
     <VerticalTimelineElement
       contentStyle={{
-        background: "rgba(255, 255, 255, 0.1)",
-        color: "#fff",
-        backdropFilter: "blur(8px)", // Equivalent to backdrop-blur-sm
-        WebkitBackdropFilter: "blur(8px)", // Ensures Safari support
+        background: "rgba(0, 0, 0, 0.1)",
+        // color: "#fff",
+        backdropFilter: "blur(30px)", // Equivalent to backdrop-blur-sm
+        WebkitBackdropFilter: "blur(30px)", // Ensures Safari support
         boxShadow:"inset 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2)",
         borderRadius: "24px", // border-radius: 24px
       }}
       //contentArrowStyle={{ borderRight: "7px solid  #232631" }}
       date={experience.date}
-      dateClassName='text-yellow-500 text-[14px] font-semibold'
+      dateClassName='text-[14px] font-semibold'
       
       iconStyle={{ background: experience.iconBg }}
       icon={
@@ -33,15 +33,15 @@ const ExperienceCard = ({ experience }) => {
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className='w-[60%] h-[60%] object-contain'
+            className=' object-contain'
           />
         </div>
       }
     >
       <div>
-        <h3 className='text-yellow-200 text-[24px] font-bold'>{experience.title}</h3>
+        <h3 className='text-[24px] font-bold'>{experience.title}</h3>
         <p
-          className='text-purple-600 text-[16px] font-semibold'
+          className='text-[16px] font-semibold'
           style={{ margin: 0 }}
         >
           {experience.company_name}
@@ -52,7 +52,7 @@ const ExperienceCard = ({ experience }) => {
         {experience.points.map((point, index) => (
           <li
             key={`experience-point-${index}`}
-            className='text-yellow-300 text-[14px] pl-1 tracking-wider'
+            className='text-[14px] pl-1 tracking-wider'
           >
             {point}
           </li>

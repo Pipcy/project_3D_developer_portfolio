@@ -1,39 +1,52 @@
+
+//=====================================================
+
 // import React from "react";
-// import Tilt from "react-tilt";
+// import { useRef, useState } from 'react';
+// //import Tilt from "react-tilt";
 // import { motion } from "framer-motion";
 
 // import { styles } from "../styles";
 // import { github, video } from "../assets";
 // import { SectionWrapper } from "../hoc";
 // import { projects } from "../constants";
+// import { projects as projectData } from "../project-utils/projectData";
+
 // import { fadeIn, textVariant } from "../utils/motion";
+// import { useNavigate } from "react-router-dom"; //for navigation
+// //import GooeyTooltip from "./small-stuff";
 
 // const ProjectCard = ({
 //   index,
 //   name,
 //   description,
 //   tags,
-//   image,
+//   images,
 //   source_code_link,
 // }) => {
 //   return (
-//     <motion.div variants={fadeIn("up", "spring", index * 0.5, 0.75)}>
-//       <Tilt
+//     <motion.div 
+//       variants={fadeIn("up", "spring", index * 0.5, 0.75)}
+//       whileHover={{ scale: 1.0 }} // Enlarges on hover, none
+//       transition={{ type: "spring", stiffness: 100 }} //bouncy effect
+//       >
+//      <div className="p-5 rounded-2xl sm:w-[360px] w-full custom-glass dark:bg-black/10">
+//       {/* <Tilt // Tilt is moving around the hovering mouse very distractive
 //         options={{
 //           max: 45,
 //           scale: 1,
 //           speed: 450,
 //         }}
-//         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full'
-//       >
+//         className='bg-tertiary p-5 rounded-2xl sm:w-[360px] w-full bg-white/5 backdrop-blur-sm shadow-lg'
+//       > */}
 //         <div className='relative w-full h-[230px]'>
 //           <img
-//             src={image}
+//             src={images[0]}
 //             alt='project_image'
-//             className='w-full h-full object-cover rounded-2xl'
+//             className='w-full h-full object-cover rounded-2xl '
 //           />
 
-//           <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+//           {/* <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
 //             <div
 //               onClick={() => window.open(source_code_link, "_blank")}
 //               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
@@ -44,14 +57,15 @@
 //                 className='w-1/2 h-1/2 object-contain'
 //               />
 //             </div>
-//           </div>
+//           </div> */}
 //         </div>
 
 //         <div className='mt-5'>
-//           <h3 className='text-white font-bold text-[24px]'>{name}</h3>
-//           <p className='mt-2 text-secondary text-[14px]'>{description}</p>
+//           <h3 className='font-bold text-[24px]'>{name}</h3>
+//           <p className='mt-2 text-[14px]'>{description}</p>
 //         </div>
 
+//         {/*  this is the hastage for software used
 //         <div className='mt-4 flex flex-wrap gap-2'>
 //           {tags.map((tag) => (
 //             <p
@@ -61,48 +75,88 @@
 //               #{tag.name}
 //             </p>
 //           ))}
-//         </div>
-//       </Tilt>
+//         </div> */}
+//       </div>
+//       {/* </Tilt> */}
 //     </motion.div>
 //   );
 // };
 
 // const Works = () => {
+//   const scrollContainerRef = useRef(null); 
+//   const navigate = useNavigate();
+//   //const [isHovered, setIsHovered] = useState(false);
+
+
+//   //Function to handle the scroll on button click
+//   const scroll = (direction) => {
+//     if (scrollContainerRef.current) {
+//       const scrollAmount = direction === 'left' ? -300 : 300; // Adjust scroll distance
+//       scrollContainerRef.current.scrollBy({
+//         left: scrollAmount,
+//         behavior: 'smooth',
+//       });
+//     }
+//   };
+
 //   return (
-//     <>
-//       <motion.div variants={textVariant()}>
-//         <p className={`${styles.sectionSubText} `}>My work</p>
-//         <h2 className={`${styles.sectionHeadText}`}>Projects.</h2>
-//       </motion.div>
+//     <div className='relative w-full h-full'>
+    
+//       {/* Content */}
+//       <div className='relative z-10'>
+//         <motion.div variants={textVariant()}>
+//           <p className={`${styles.sectionSubText} `}>My work</p>
+//           <h2 className={`${styles.sectionHeadText}`}>Featured Projects.</h2>
+//         </motion.div>
 
-//       <div className='w-full flex'>
-//         <motion.p
-//           variants={fadeIn("", "", 0.1, 1)}
-//           className='mt-3 text-secondary text-[17px] max-w-3xl leading-[30px]'
-//         >
-//           Following projects showcases my skills and experience through
-//           real-world examples of my work. Each project is briefly described with
-//           links to code repositories and live demos in it. It reflects my
-//           ability to solve complex problems, work with different technologies,
-//           and manage projects effectively.
-//         </motion.p>
-//       </div>
+//         <div className='w-full flex'>
+//           <motion.p
+//             variants={fadeIn("", "", 0.1, 1)}
+//             className='mt-3 text-[17px] max-w-3xl leading-[30px]' // text-secondary 
+//           >
+//             Explore some works I've done over the years.
+//           </motion.p>
+//         </div>
 
-//       <div className='mt-20 flex flex-wrap gap-7'>
-//         {projects.map((project, index) => (
-//           <ProjectCard key={`project-${index}`} index={index} {...project} />
-//         ))}
+//         {/* Horizontal scrolling container */}
+//         <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidden gap-7' ref={scrollContainerRef}>
+//           {projects.map((project, index) => (
+//             <ProjectCard key={`project-${index}`} index={index} {...project} />
+//           ))}
+//         </div>
+      
+//         <div className="flex justify-center items-center p-10">
+//           <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 hover:bg-blue-300 rounded-full">
+//               Browse All Projects
+//           </button>
+//         </div>
+        
+
+
+
+        
+
+//         {/* <div className='mt-20 flex overflow-x-auto gap-7'>
+//           {projects.map((project, index) => (
+//             <ProjectCard key={`project-${index}`} index={index} {...project} />
+//           ))}
+//         </div> */}
 //       </div>
-//     </>
+      
+//     </div>
+    
+
+
+
 //   );
 // };
 
-// export default SectionWrapper(Works, "");
-
+// export default SectionWrapper(Works, "projects"); //inside "" is the thing for the navbar to highlight and link to the section
 //=====================================================
 
+
 import React from "react";
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 //import Tilt from "react-tilt";
 import { motion } from "framer-motion";
 
@@ -110,15 +164,18 @@ import { styles } from "../styles";
 import { github, video } from "../assets";
 import { SectionWrapper } from "../hoc";
 import { projects } from "../constants";
+import { projects as projectData } from "../project-utils/projectData";
+
 import { fadeIn, textVariant } from "../utils/motion";
+import { useNavigate } from "react-router-dom"; //for navigation
+//import GooeyTooltip from "./small-stuff";
 
 const ProjectCard = ({
   index,
   name,
   description,
   tags,
-  images,
-  source_code_link,
+  media
 }) => {
   return (
     <motion.div 
@@ -126,7 +183,7 @@ const ProjectCard = ({
       whileHover={{ scale: 1.0 }} // Enlarges on hover, none
       transition={{ type: "spring", stiffness: 100 }} //bouncy effect
       >
-     <div className="p-5 rounded-2xl sm:w-[360px] w-full bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]">
+     <div className="p-5 rounded-2xl sm:w-[360px] w-full custom-glass dark:bg-black/10">
       {/* <Tilt // Tilt is moving around the hovering mouse very distractive
         options={{
           max: 45,
@@ -137,12 +194,12 @@ const ProjectCard = ({
       > */}
         <div className='relative w-full h-[230px]'>
           <img
-            src={images[0]}
+            src={media[0]}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl '
           />
 
-          <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
+          {/* <div className='absolute inset-0 flex justify-end m-3 card-img_hover'>
             <div
               onClick={() => window.open(source_code_link, "_blank")}
               className='black-gradient w-10 h-10 rounded-full flex justify-center items-center cursor-pointer'
@@ -153,7 +210,7 @@ const ProjectCard = ({
                 className='w-1/2 h-1/2 object-contain'
               />
             </div>
-          </div>
+          </div> */}
         </div>
 
         <div className='mt-5'>
@@ -180,6 +237,9 @@ const ProjectCard = ({
 
 const Works = () => {
   const scrollContainerRef = useRef(null); 
+  const navigate = useNavigate();
+  //const [isHovered, setIsHovered] = useState(false);
+
 
   //Function to handle the scroll on button click
   const scroll = (direction) => {
@@ -194,16 +254,7 @@ const Works = () => {
 
   return (
     <div className='relative w-full h-full'>
-      {/* Background Video */}
-      {/* <video 
-        autoPlay 
-        loop 
-        muted 
-        className='absolute top-0 left-0 w-full h-full object-cover z-[-1]'
-      >
-        <source src={video} type='video/mp4' />
-      </video> */}
-      
+    
       {/* Content */}
       <div className='relative z-10'>
         <motion.div variants={textVariant()}>
@@ -222,27 +273,21 @@ const Works = () => {
 
         {/* Horizontal scrolling container */}
         <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidden gap-7' ref={scrollContainerRef}>
-          {projects.map((project, index) => (
+          {projectData.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
           ))}
         </div>
-
-        {/* Arrow Buttons at the bottom */}
-        <div className="flex justify-between mt-5">
-          {/* Left Arrow Button */}
-          <button
-            onClick={() => scroll('left')}
-            className='bg-black/40 rounded-full p-3'>
-            &lt;
-          </button>
-
-          {/* Right Arrow Button */}
-          <button
-            onClick={() => scroll('right')}
-            className='bg-black/40 rounded-full p-3'>
-            &gt;
+      
+        <div className="flex justify-center items-center p-10">
+          <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 hover:bg-blue-300 rounded-full">
+              Browse All Projects
           </button>
         </div>
+        
+
+
+
+        
 
         {/* <div className='mt-20 flex overflow-x-auto gap-7'>
           {projects.map((project, index) => (
@@ -250,7 +295,12 @@ const Works = () => {
           ))}
         </div> */}
       </div>
+      
     </div>
+    
+
+
+
   );
 };
 

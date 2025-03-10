@@ -1,0 +1,11 @@
+Model Information:
+* title:	Cyberpunk Mutant
+* source:	https://sketchfab.com/3d-models/cyberpunk-mutant-0a18fb5526e747ac936f43912ddd1a30
+* author:	SOLIDISM (https://sketchfab.com/Ge.Yu)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Cyberpunk Mutant" (https://sketchfab.com/3d-models/cyberpunk-mutant-0a18fb5526e747ac936f43912ddd1a30) by SOLIDISM (https://sketchfab.com/Ge.Yu) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
