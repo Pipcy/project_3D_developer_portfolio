@@ -63,13 +63,13 @@ const Hero = () => {
   return (
     
     <section className="relative w-full h-screen flex flex-col justify-center items-center text-center mx-auto px-4">
-      <Spline
+      {/* <Spline
           scene="https://prod.spline.design/td8516Kk1UlT7fVz/scene.splinecode" 
           style={{
             width: '100%',
             height: '500px', // Adjust the height based on your layout
           }}
-        />
+        /> */}
       
       <div className="max-w-7xl">
         

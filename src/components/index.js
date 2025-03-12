@@ -1,5 +1,6 @@
 import { EarthCanvas, BallCanvas, ComputersCanvas, StarsCanvas, KnittedTorus,VideoCanvas, FloatingBlocksCanvas } from './canvas';
 import Hero from "./Hero";
+import Hero3D from './Hero3D';
 import Navbar from "./Navbar";
 import About from "./About";
 import Tech from "./Tech";
@@ -19,6 +20,7 @@ import NavbarSimple from './NavbarSimple';
 
 export {
   Hero,
+  Hero3D,
   Navbar,
   About,
   Tech,

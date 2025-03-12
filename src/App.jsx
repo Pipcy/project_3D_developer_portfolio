@@ -51,15 +51,16 @@
 // }
 
 // export default App;
+import { Canvas } from "@react-three/fiber";
 
-
-import { useState } from "react";
+import { Suspense, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import { About, Contact, Experience, Feedbacks, Hero, Navbar, NavbarSimple,Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage, AllProjects } from "./components";
+import { About, Contact, Experience, Feedbacks, Hero, Hero3D, Navbar, NavbarSimple,Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage, AllProjects } from "./components";
 import LoadingPage from './components/LoadingPage'; // Import the LoadingPage component
 import ContactPage from './components/ContactPage'; // Import the ContactPage component
 import { ThemeProvider } from "./Theme/ThemeContext";
+import { Physics } from "@react-three/rapier";
 
 const App = () => {
   const [entered, setEntered] = useState(false);  // State to track if the user has clicked "Enter"
@@ -79,9 +80,29 @@ const App = () => {
                 <Navbar />
                 <div className='relative z-0 {/*bg-[#ffffff]*/}'>
                   <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
+                  
+
+                  <Canvas 
+                    gl={{ alpha: true }} 
+                    style={{ width: "100vw", height: "100vh", background: "transparent" }} 
+                    shadows camera={{ position: [10, 0, 35], fov: 30 }} 
+                  >               
+                    <Suspense>
+                      <Physics debug gravity={[0, -4, 0]}>
+                        <Hero3D />
+                      </Physics>
+                    </Suspense>
+                  </Canvas>
+
                   <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
                     <Hero />
-                  </div>    
+                  </div>  
+
+
+
+
+
+
                   <About />
                   
                   <Tech />            
@@ -127,6 +148,22 @@ const App = () => {
                 </div>
               </>
             }/>
+
+          
+          <Route path="/test" element={
+            <Canvas 
+              gl={{ alpha: true }} 
+              style={{ width: "100vw", height: "100vh", background: "transparent" }} 
+              shadows camera={{ position: [10, 0, 35], fov: 30 }} 
+            >
+              <color attach="background" args={['#f0f0f0']} />
+              <Suspense>
+                <Physics debug gravity={[0, -4, 0]}>
+                  <Hero3D />
+                </Physics>
+              </Suspense>
+            </Canvas>
+          }/>
 
 
 
