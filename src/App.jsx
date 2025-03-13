@@ -85,18 +85,18 @@ const App = () => {
                   <Canvas 
                     gl={{ alpha: true }} 
                     style={{ width: "100vw", height: "100vh", background: "transparent" }} 
-                    shadows camera={{ position: [10, 0, 35], fov: 30 }} 
+                    shadows camera={{ position: [-20, 40, 30 ], fov: 10 }} 
                   >               
                     <Suspense>
-                      <Physics debug gravity={[0, -4, 0]}>
+                      <Physics gravity={[0, -4, 0]}>
                         <Hero3D />
                       </Physics>
                     </Suspense>
                   </Canvas>
 
-                  <div className='{/*bg-hero-pattern*/} bg-cover bg-no-repeat bg-center'>
+                  {/* <div className='bg-cover bg-no-repeat bg-center'>
                     <Hero />
-                  </div>  
+                  </div>   */}
 
 
 

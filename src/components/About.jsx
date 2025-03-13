@@ -56,29 +56,9 @@ const About = () => {
       </motion.p> */}
 
       
-      <div className="flex flex-col md:grid md:grid-cols-10 gap-4 items-stretch">
-        {/* Left side - Larger (7/10) */}
-        <div className="md:col-span-6 flex flex-col gap-4 h-full"> {/* Left Section */}
-          <div className="break-words p-5 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-2xl shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]">
-            <h2 className="text-2xl font-bold mb-4">Tech Stack</h2>
-            {['language', 'framework', 'software'].map((category) => (
-              <div key={category}>
-                <h3 className="text-md  mt-4 pb-1">{category.charAt(0).toUpperCase() + category.slice(1)}s</h3>
-                <div className="flex flex-wrap gap-2">
-                  {technologies.filter(item => item.tag === category).map((item) => (
-                    <div key={item.name} className="flex items-center gap-2 p-2 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-md hover:scale-105 transition-transform duration-200">
-                      <img src={item.icon} alt={item.name} className="w-6 h-6" />
-                      <span className="text-sm font-medium">{item.name}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Right side - Smaller (3/10) */}
-        <div className="md:col-span-4 flex flex-col gap-4 h-full"> {/* Right Section */}
+      <div className="pl-8 flex flex-col [@media(min-width:1000px)]:flex-row gap-4 items-stretch">
+        {/* Left side - Fixed width (440px) */}
+        <div className="md:min-w-[440px] flex flex-col gap-4 h-full">
           <div className="p-5 rounded-2xl flex items-center gap-4 custom-glass dark:bg-black/10">
             <img src={theme === "dark" ? buWhite : buBlack } alt="University-logo" className="w-26 h-12 rounded-sm object-cover" />
             <div>
@@ -101,8 +81,30 @@ const About = () => {
           </a>
         </div>
 
-        
+        {/* Right side - Flexible width */}
+        <div className="md:flex-grow flex flex-col gap-4 h-full">
+          <div className="break-words p-5 rounded-2xl bg-white/10 dark:bg-black/10 backdrop-blur-2xl shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]">
+            <h2 className="text-2xl font-bold mb-4">Tech Stack</h2>
+            {['language', 'framework', 'software'].map((category) => (
+              <div key={category}>
+                <h3 className="text-md mt-4 pb-1">{category.charAt(0).toUpperCase() + category.slice(1)}s</h3>
+                <div className="flex flex-wrap gap-2">
+                  {technologies.filter(item => item.tag === category).map((item) => (
+                    <div key={item.name} className="flex items-center gap-2 p-2 rounded-full bg-white/40 dark:bg-black/40 backdrop-blur-md shadow-md hover:scale-105 transition-transform duration-200">
+                      <img src={item.icon} alt={item.name} className="w-6 h-6" />
+                      <span className="text-sm font-medium">{item.name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
+       
+
+        
+      
       {/* <div className='mt-20 flex flex-wrap gap-10'>
 
         Languages: Python, C++, C#, Go, Java, Swift.

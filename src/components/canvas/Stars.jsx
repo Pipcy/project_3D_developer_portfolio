@@ -2,9 +2,11 @@ import { useState, useRef, Suspense } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial, Preload } from "@react-three/drei";
 import * as random from "maath/random/dist/maath-random.esm";
+import { useTheme } from "../../Theme/ThemeContext";
 
 const Stars = (props) => {
   const ref = useRef();
+  const { theme, toggleTheme } = useTheme();
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.2 }));
 
   useFrame((state, delta) => {
@@ -17,7 +19,7 @@ const Stars = (props) => {
       <Points ref={ref} positions={sphere} stride={3} frustumCulled {...props}>
         <PointMaterial
           transparent
-          color='#58ff33'
+          color={theme === "dark" ? '#FFFFFF':"#000000" }
           size={0.002}
           sizeAttenuation={true}
           depthWrite={false}

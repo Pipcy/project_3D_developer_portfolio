@@ -55,11 +55,27 @@ import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";
 
-import proj1_img1 from "./projects/bg-face.png";
-import proj2_img1 from "./projects/proj2_img1.png";
-import proj3_img1 from "./projects/proj3_img1.gif";
+// project media -----------------------------------------------
+//project 1
+import proj1_img1 from "./projects/proj1/1a.png"; 
+// export { default as p1b } from "./projects/proj1/1b.mov"; // TO FIX: embed video
 
-//tech
+//project 2
+export { default as p2a } from "./projects/proj2/2a.jpg";
+// project 3
+import proj3_img1 from "./projects/proj3/3a.png";
+import proj3_img2 from "./projects/proj3/3b.png";
+import proj3_img3 from "./projects/proj3/3c.png";
+import proj3_img4 from "./projects/proj3/3d.png";
+//project 4
+export { default as proj4_img1 } from "./projects/proj4/proj4_img1.gif"; //only need to to this
+//project 5
+
+//project 6
+
+//project 7
+
+//tech ---------------------------------------------------------
 import clogo from "./tech/c-logo.png";
 import cpp from "./tech/cpp-logo.png";
 import onshape from "./tech/onshape-logo.png";
@@ -128,8 +144,14 @@ export {
   universal,
   microsoft,
   proj1_img1,
-  proj2_img1,
+  
+
+
   proj3_img1,
+  proj3_img2,
+  proj3_img3,
+  proj3_img4,
+
   clogo,
   cpp,
   onshape,

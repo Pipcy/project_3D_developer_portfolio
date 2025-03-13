@@ -167,7 +167,7 @@ import { projects } from "../constants";
 import { projects as projectData } from "../project-utils/projectData";
 
 import { fadeIn, textVariant } from "../utils/motion";
-import { useNavigate } from "react-router-dom"; //for navigation
+import { Link, useNavigate } from "react-router-dom"; //for navigation
 //import GooeyTooltip from "./small-stuff";
 
 const ProjectCard = ({
@@ -175,7 +175,7 @@ const ProjectCard = ({
   name,
   description,
   tags,
-  media
+  cover
 }) => {
   return (
     <motion.div 
@@ -194,7 +194,7 @@ const ProjectCard = ({
       > */}
         <div className='relative w-full h-[230px]'>
           <img
-            src={media[0]}
+            src={cover}
             alt='project_image'
             className='w-full h-full object-cover rounded-2xl '
           />
@@ -272,17 +272,72 @@ const Works = () => {
         </div>
 
         {/* Horizontal scrolling container */}
-        <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidden gap-7' ref={scrollContainerRef}>
+        {/* <div className='mt-20 relative flex overflow-x-hidden overflow-y-hidden gap-7' ref={scrollContainerRef}>
           {projectData.map((project, index) => (
             <ProjectCard key={`project-${index}`} index={index} {...project} />
+          ))} */}
+
+        <div className="w-full grid grid-cols-1 max-w-[400px] overflow-x-hidden md:grid-cols-2 md:max-w-[800px] gap-6 xl:grid-cols-3 xl:max-w-[1100px]">
+          {projectData
+            .filter(proj => [1, 2, 3].includes(proj.featuredNum)) // Keep only 1, 2, 3
+            .sort((a, b) => a.featuredNum - b.featuredNum) // Ensure correct order
+            .map((proj) => (
+              <Link to={`/projects/${proj.slug}`} key={proj.slug} className="relative block overflow-hidden rounded-lg">
+                <motion.div
+                  className="relative h-[350px] rounded-lg overflow-hidden"
+                  whileHover={{ scale: 1.05 }}
+                >
+                  {/* Background Image */}
+                  <div
+                    className="absolute inset-0 bg-cover bg-center transition-opacity duration-300"
+                    style={{ backgroundImage: `url(${proj.cover})` }}
+                  />
+                  
+                  {/* Project Title (Visible by Default, Hidden on Hover) */}
+                  <motion.div
+                    className="absolute bottom-4 right-4 text-lg font-bold text-white backdrop-blur-md px-2 py-1 rounded-xl"
+                    initial={{ opacity: 1 }}
+                    whileHover={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {/* {proj.name} */}
+                  </motion.div>
+
+                  {/* Overlay & Tech Stack */}
+                  <motion.div
+                    className="absolute inset-0 bg-black/50 flex flex-col justify-center rounded items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4"
+                  >
+                    <h3 className="text-white text-lg font-bold">{proj.name}</h3>
+                    <p className="text-white text-sm text-center pt-2">{proj.description}</p>
+                    <div className="flex flex-wrap justify-center gap-2 mt-2">
+                      {proj.technologies.map((tech, index) => (
+                        <motion.span
+                          key={index}
+                          initial={{ opacity: 0, y: 10 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ delay: index * 0.1 }}
+                          className="custom-glass text-white text-xs font-semibold py-1 px-3 rounded-full shadow-md"
+                        >
+                          {tech}
+                        </motion.span>
+                      ))}
+                    </div>
+                  </motion.div>
+                </motion.div>
+              </Link>
           ))}
         </div>
+      </div> 
+
+        
       
+      {/* button */}
         <div className="flex justify-center items-center p-10">
           <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 hover:bg-blue-300 rounded-full">
               Browse All Projects
           </button>
         </div>
+
         
 
 
@@ -296,7 +351,7 @@ const Works = () => {
         </div> */}
       </div>
       
-    </div>
+
     
 
 

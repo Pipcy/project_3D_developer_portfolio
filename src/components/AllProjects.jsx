@@ -103,7 +103,7 @@ const AllProjects = () => {
       <h3 className="mb-4 ">Learn more about me through my work.</h3>
 
       {/* Projects List */}
-      <div className="w-full grid grid-cols-1 max-w-[400px] md:grid-cols-2 md:max-w-[800px] gap-4 xl:grid-cols-3 xl:max-w-[1200px]">
+      <div className="w-full grid grid-cols-1 max-w-[400px] md:grid-cols-2 md:max-w-[806px] gap-6 xl:grid-cols-2 xl:max-w-[806px] 2xl:grid-cols-3 2xl:max-w-[1212px]">
         {filteredProjects.map((proj) => (
           <Link to={`/projects/${proj.slug}`} key={proj.slug} className="relative block overflow-hidden rounded-lg">
             <motion.div
@@ -113,7 +113,7 @@ const AllProjects = () => {
               {/* Background Image */}
               <div
                 className="absolute inset-0 bg-cover bg-center transition-opacity duration-300"
-                style={{ backgroundImage: `url(${proj.media[0]})` }}
+                style={{ backgroundImage: `url(${proj.cover})` }}
               />
 
               {/* Project Title (Visible by Default, Hidden on Hover) */}
@@ -123,7 +123,7 @@ const AllProjects = () => {
                 whileHover={{ opacity: 0 }}
                 transition={{ duration: 0.3 }}
               >
-                {proj.name}
+                {/* {proj.name} */}
               </motion.div>
 
               {/* Overlay & Tech Stack */}
@@ -131,6 +131,7 @@ const AllProjects = () => {
                 className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4"
               >
                 <h3 className="text-white text-lg font-bold">{proj.name}</h3>
+                <p className="text-white text-sm text-center pt-2">{proj.description}</p>
                 <div className="flex flex-wrap justify-center gap-2 mt-2">
                   {proj.technologies.map((tech, index) => (
                     <motion.span
@@ -138,12 +139,13 @@ const AllProjects = () => {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: index * 0.1 }}
-                      className="bg-gray-200 dark:bg-gray-800 text-gray-900 dark:text-gray-100 text-xs font-semibold py-1 px-3 rounded-full shadow-md"
+                      className="custom-glass text-white text-xs font-semibold py-1 px-3 rounded-full shadow-md"
                     >
                       {tech}
                     </motion.span>
                   ))}
                 </div>
+
               </motion.div>
             </motion.div>
           </Link>

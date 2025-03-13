@@ -101,7 +101,7 @@ const ProjectPage = () => {
       style={{
         width: "100%",
         height: "500px",
-        backgroundImage: `url(${project.media[0]})`,
+        backgroundImage: `url(${project.banner})`,
         backgroundSize: "cover",
         backgroundPosition: "center",
       }}
