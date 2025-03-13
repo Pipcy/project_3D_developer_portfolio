@@ -278,4 +278,12 @@ const projects = [
   }
 ];
 
-export { services, technologies, experiences, testimonials, projects };
+const COLOR_PALETTE = [
+  "#8527FF",
+  "#4BE29B",
+  "#FFE15C",
+  "#FF7073",
+  "#E28CFF",
+];
+
+export { services, technologies, experiences, testimonials, projects, COLOR_PALETTE};

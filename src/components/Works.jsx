@@ -289,7 +289,7 @@ const Works = () => {
                 >
                   {/* Background Image */}
                   <div
-                    className="absolute inset-0 bg-cover bg-center transition-opacity duration-300"
+                    className="rounded-3xl absolute inset-0 bg-cover bg-center transition-opacity duration-300"
                     style={{ backgroundImage: `url(${proj.cover})` }}
                   />
                   
@@ -305,7 +305,7 @@ const Works = () => {
 
                   {/* Overlay & Tech Stack */}
                   <motion.div
-                    className="absolute inset-0 bg-black/50 flex flex-col justify-center rounded items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4"
+                    className="absolute inset-0 bg-black/50 flex flex-col justify-center rounded-3xl items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4"
                   >
                     <h3 className="text-white text-lg font-bold">{proj.name}</h3>
                     <p className="text-white text-sm text-center pt-2">{proj.description}</p>
@@ -333,7 +333,7 @@ const Works = () => {
       
       {/* button */}
         <div className="flex justify-center items-center p-10">
-          <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 hover:bg-blue-300 rounded-full">
+          <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 rounded-full">
               Browse All Projects
           </button>
         </div>
