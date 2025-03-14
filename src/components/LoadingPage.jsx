@@ -42,15 +42,16 @@ import React, { useState, useEffect } from 'react';
 function LoadingPage({ onEnter }) {
   const [progress, setProgress] = useState(0);
   const loadingTime = 1000; // 3 seconds
+  const maxProgress = 3.1415926; // Pi
 
   useEffect(() => {
     const interval = setInterval(() => {
       setProgress((prev) => {
-        if (prev >= 100) {
+        if (prev >= maxProgress) {
           clearInterval(interval);
-          return 100;
+          return maxProgress;
         }
-        return prev + 1.5; // Adjust speed of progress fill
+        return prev + 0.007; // Adjust speed of progress fill
       });
     }, loadingTime / 100);
 
@@ -65,15 +66,14 @@ function LoadingPage({ onEnter }) {
       >
         <div
           className='absolute top-0 left-0 h-full bg-white transition-all ease-in-out' 
-          style={{ width: `${progress}%` }}
+          style={{ width: `${(progress / maxProgress) * 100}%` }}
         />
         <button
-          className={`bg-white/10 backdrop-blur-lg absolute top-0 left-0 w-full h-full text-black font-medium transition duration-300 ease-in-out ${progress < 100 ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:bg-gray-300 active:scale-95'}`}
-          //bg-white/10 backdrop-blur-lg shadow-[inset_0_0_0_0.5px_rgba(255,255,255,0.2),0_8px_24px_rgba(0,0,0,0.2)]
-          onClick={progress >= 100 ? onEnter : null}
-          disabled={progress < 100}
+          className={`bg-white/10 backdrop-blur-lg absolute top-0 left-0 w-full h-full text-black font-medium transition duration-300 ease-in-out ${progress < maxProgress ? 'opacity-50 cursor-not-allowed' : 'opacity-100 hover:bg-gray-300 active:scale-95'}`}
+          onClick={progress >= maxProgress ? onEnter : null}
+          disabled={progress < maxProgress}
         >
-          {progress < 100 ? `Loading... ${Math.round(progress)}%` : 'Explore 探索!'}
+          {progress < maxProgress ? `Loading... ${progress.toFixed(2)}` : 'π '}
         </button>
       </div>
     </div>

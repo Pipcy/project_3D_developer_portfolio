@@ -179,7 +179,7 @@ const experiences = [
     company_name: "Universal Creative",
     icon: universal,
     iconBg: "#ffffff",
-    date: "January 2024 - August 2024",
+    date: "1/2024 - 8/2024",
     points: [
       "Worked in ATI R&D (Advanced Technology Interactive), researched new interactive technology, contributed to design, iteration, and testing for blue-sky project for Universal park attraction innovation."
     ],
@@ -189,7 +189,7 @@ const experiences = [
     company_name: "Microsoft",
     icon: microsoft,
     iconBg: "#ffffff",
-    date: "May 2025 - August 2025",
+    date: "5/2025 - 8/2025",
     points: [
       "Incoming intern for Microsoft Gaming Business Group."
     ],
@@ -286,4 +286,12 @@ const COLOR_PALETTE = [
   "#E28CFF",
 ];
 
-export { services, technologies, experiences, testimonials, projects, COLOR_PALETTE};
+const COLOR_PALETTE_BRIGHT = [
+  "#7F1DFF",
+  "#03FF89",
+  "#FFDC42",
+  "#FF5E60",
+  "#DC72FF",
+];
+
+export { services, technologies, experiences, testimonials, projects, COLOR_PALETTE, COLOR_PALETTE_BRIGHT};

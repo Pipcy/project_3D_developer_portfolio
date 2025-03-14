@@ -100,14 +100,14 @@ const AllProjects = () => {
       </div>
 
       <h1 className="text-[120px] font-bold mb-4 pt-[100px]">Projects.</h1>
-      <h3 className="mb-4 ">Learn more about me through my work.</h3>
+      <h3 className="mb-4 pb-6 ">Learn more about me through my work.</h3>
 
       {/* Projects List */}
       <div className="w-full grid grid-cols-1 max-w-[400px] md:grid-cols-2 md:max-w-[806px] gap-6 xl:grid-cols-2 xl:max-w-[806px] 2xl:grid-cols-3 2xl:max-w-[1212px]">
         {filteredProjects.map((proj) => (
-          <Link to={`/projects/${proj.slug}`} key={proj.slug} className="relative block overflow-hidden rounded-lg">
+          <Link to={`/projects/${proj.slug}`} key={proj.slug} className="relative block overflow-hidden rounded-3xl">
             <motion.div
-              className="relative h-[350px] rounded-lg overflow-hidden"
+              className="relative h-[350px] rounded-3xl overflow-hidden"
               whileHover={{ scale: 1.05 }}
             >
               {/* Background Image */}
@@ -128,7 +128,7 @@ const AllProjects = () => {
 
               {/* Overlay & Tech Stack */}
               <motion.div
-                className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4"
+                className="absolute inset-0 bg-black/50 flex flex-col justify-center items-center opacity-0 hover:opacity-100 transition-opacity duration-300 p-4 rounded-3xl"
               >
                 <h3 className="text-white text-lg font-bold">{proj.name}</h3>
                 <p className="text-white text-sm text-center pt-2">{proj.description}</p>

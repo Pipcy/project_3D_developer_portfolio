@@ -18,7 +18,7 @@ body {
 /* Theme Variables - seperate definition for different themes lives here */
 :root {
   /* Light Theme */
-  --background-color: rgb(245, 245, 247);
+  --background-color: rgb(244, 243, 240);
   --text-color: black;
   --custom-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.2), 0 8px 24px rgba(0, 0, 0, 0.2);
   --matte-glass: bg-black;
@@ -26,7 +26,7 @@ body {
 
 .dark {
   /* Dark Theme */
-  --background-color: rgb(18, 18, 18);
+  --background-color: rgb(25, 19, 38);
   --text-color: white;
   --matte-glass: bg-white;
 }

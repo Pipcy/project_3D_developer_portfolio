@@ -319,104 +319,227 @@
 // export default Hero3D;
 
 
+// import { OrbitControls } from "@react-three/drei";
+// import { RigidBody } from "@react-three/rapier";
+// import { Text3D, Sphere } from "@react-three/drei";
+// import { useRef, useState, useEffect } from "react";
+// import { COLOR_PALETTE } from "../constants";
+// import { useSpring, a } from "@react-spring/three"; // Import useSpring for animation
+
+// const h = 3
+
+// const TEXTS = [
+//   { text: "PROTOTYPER", size: 0.3, height: 0.2, position: [-2, h+4, 0],interactive: true},
+//   { text: "COMPUTER ENGINEER", size: 0.3, height: 0.2, position: [-2, h+5, 0.5] , interactive: true},
+  
+//   { text: "DESIGNER", size: 0.4, height: 0.2, position: [-2, h+7, 2.5] ,interactive: true},
+//   { text: "DEVELOPER", size: 0.5, height: 0.2, position: [-2, h+8, 3.2] , interactive: true},
+//   { text: "ARTIST", size: 0.25, height: 0.2, position: [-2, h+9, 3.7],interactive: true },
+// ];
+
+// const NAMES = [
+//   { text: "PIPPI", size: 1, height: 0.5, position: [-2, h+6, 2], material: "physical" ,interactive: true},
+//   { text: "PI", size: 1, height: 0.5, position: [1.2, h+6.3, 2.2], material: "physical" ,interactive: true}
+// ]
+
+
+
+// export const Hero3D = () => {
+//   const [hoveredIndex, setHoveredIndex] = useState(null);
+//   const [ballPosition, setBallPosition] = useState([1, 5, 0]);
+//   const [draggingBall, setDraggingBall] = useState(false);
+//   const ballRef = useRef(null);
+//   const cube = useRef(null);
+//   const hoverColorSpring = useSpring({
+//     color: hoveredIndex !== null ? COLOR_PALETTE[hoveredIndex >4? hoveredIndex-4: hoveredIndex] : "gray", // Smooth color transition
+//     config: { tension: 170, friction: 26 }, // Adjust the speed and smoothness
+//   });
+
+//   useEffect(() => {
+//     console.log("Cube ref:", cube.current);
+//   }, []);
+
+//   // const jump = () => {
+//   //   if (cube.current) {
+//   //     console.log("Jump triggered!");
+//   //     cube.current.applyImpulse({ x: 0, y: 10, z: 0 });
+//   //   }
+//   // };
+
+//   // const handleBallPointerDown = () => {
+//   //   setDraggingBall(true);
+//   // };
+
+//   // const handleBallPointerMove = (event) => {
+//   //   if (draggingBall) {
+//   //     setBallPosition((prev) => [event.point.x, prev[1], event.point.z]);
+//   //   }
+//   // };
+
+//   // const handleBallPointerUp = () => {
+//   //   setDraggingBall(false);
+//   // };
+
+//   return (
+//     <>
+//       <ambientLight intensity={0.5} />
+//       <directionalLight position={[10, 10, 5]} intensity={1} />
+//       <OrbitControls enableZoom={false} enableRotate enablePan target={[0, 0, 0]} />
+
+//       {TEXTS.map(({ text, size, height, position, material, interactive }, index) => (
+//         <RigidBody key={index} type="dynamic" restitution={0.5} friction={1} position={position} rotation={[-Math.PI / 2, 0, 0]}>
+//           <Text3D font="/fonts/helvetiker_regular.typeface.json" size={size} height={height} 
+//             onPointerEnter={interactive ? () => setHoveredIndex(index) : undefined} 
+//             onPointerLeave={interactive ? () => setHoveredIndex(null) : undefined}>
+//             {text}
+//             <a.meshStandardMaterial color={hoveredIndex === index ? hoverColorSpring.color : "gray"} />
+//           </Text3D>
+//         </RigidBody>
+//       ))}
+
+//       {NAMES.map(({ text, size, height, position, material, interactive }, index) => (
+//         <RigidBody key={index} type="dynamic" restitution={0.5} friction={1} position={position} rotation={[-Math.PI / 2, 0, 0]}>
+//           <Text3D font="/fonts/helvetiker_regular.typeface.json" size={size} height={height} >
+//             {text}
+//             <a.meshPhysicalMaterial color={hoverColorSpring.color} />
+//           </Text3D>
+//         </RigidBody>
+//       ))}
+
+//       {/* <RigidBody ref={cube} position={[6, 3, 0]} colliders="cuboid" type="dynamic">
+//         <mesh
+//           onPointerEnter={() => setHoveredIndex("cube")}
+//           onPointerLeave={() => setHoveredIndex(null)}
+//           onClick={jump}
+//         >
+//           <boxGeometry />
+//           <meshStandardMaterial color={hoveredIndex === "cube" ? "hotpink" : "royalblue"} />
+//         </mesh>
+//       </RigidBody> */}
+
+//       {/* <RigidBody position={ballPosition} colliders="ball" type="dynamic" ref={ballRef}
+//         onPointerDown={handleBallPointerDown}
+//         onPointerMove={handleBallPointerMove}
+//         onPointerUp={handleBallPointerUp}>
+//         <Sphere args={[0.5, 32, 32]}>
+//           <meshStandardMaterial color="blue" />
+//         </Sphere>
+//       </RigidBody> */}
+
+//       <RigidBody type="fixed" friction={2}>
+//         <mesh position={[0, 0, 0]}>
+//           <boxGeometry args={[20, 1, 20]} />
+//           <meshStandardMaterial color="springgreen" opacity={0} transparent />
+//         </mesh>
+//       </RigidBody>
+//     </>
+//   );
+// };
+
+// export default Hero3D;
+
 import { OrbitControls } from "@react-three/drei";
 import { RigidBody } from "@react-three/rapier";
-import { Text3D, Sphere } from "@react-three/drei";
-import { useRef, useState, useEffect } from "react";
-import { COLOR_PALETTE } from "../constants";
-import { useSpring, a } from "@react-spring/three"; // Import useSpring for animation
+import { Text3D } from "@react-three/drei";
+import { useState, useEffect } from "react";
+import { COLOR_PALETTE_BRIGHT as COLOR_PALETTE } from "../constants";
+import { useSpring, a } from "@react-spring/three";
 
-const h = 3
+const h = 0;
 
 const TEXTS = [
-  { text: "PROTOTYPER", size: 0.3, height: 0.2, position: [-2, h+4, 0],interactive: true},
-  { text: "COMPUTER ENGINEER", size: 0.3, height: 0.2, position: [-2, h+5, 0.5] , interactive: true},
-  { text: "PIPPI", size: 1, height: 0.5, position: [-2, h+6, 2], material: "physical" ,interactive: true},
-  { text: "PI", size: 1, height: 0.5, position: [1.2, h+6.3, 2.2], material: "physical" ,interactive: true},
-  { text: "DESIGNER", size: 0.4, height: 0.2, position: [-2, h+7, 2.5] ,interactive: true},
-  { text: "DEVELOPER", size: 0.5, height: 0.2, position: [-2, h+8, 3.2] , interactive: true},
-  { text: "ARTIST", size: 0.25, height: 0.2, position: [-2, h+9, 3.7],interactive: true },
+  { text: "PROTOTYPER", size: 0.3, height: 0.1, position: [-2, h + 4, 0], color: COLOR_PALETTE[0] },
+  { text: "COMPUTER ENGINEER", size: 0.3, height: 0.1, position: [-2, h + 5, 0.5], color: COLOR_PALETTE[1] },
+  { text: "GAME DESIGNER", size: 0.4, height: 0.1, position: [-2, h + 7, 2.5], color: COLOR_PALETTE[2] },
+  { text: "DEVELOPER", size: 0.5, height: 0.1, position: [-2, h + 8, 3.2], color: COLOR_PALETTE[3] },
+  { text: "ARTIST", size: 0.25, height: 0.1, position: [-2, h + 9, 3.7], color: COLOR_PALETTE[4] },
 ];
 
-
+const NAMES = [
+  { text: "P", size: 1, height: 0.3, position: [-2, h + 6, 2] },
+  { text: "I", size: 1, height: 0.3, position: [-1.5, h + 6, 2] },
+  { text: "P", size: 1, height: 0.3, position: [-1, h + 6, 2] },
+  { text: "P", size: 1, height: 0.3, position: [-0.5, h + 6, 2] },
+  { text: "I", size: 1, height: 0.3, position: [-0, h + 6, 2] },
+  { text: "P", size: 1, height: 0.3, position: [1.5, h + 6, 2] },
+  { text: "I", size: 1, height: 0.3, position: [2.5, h + 6.3, 2.2] },
+];
 
 export const Hero3D = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
-  const [ballPosition, setBallPosition] = useState([1, 5, 0]);
-  const [draggingBall, setDraggingBall] = useState(false);
-  const ballRef = useRef(null);
-  const cube = useRef(null);
-  const hoverColorSpring = useSpring({
-    color: hoveredIndex !== null ? COLOR_PALETTE[hoveredIndex >4? hoveredIndex-4: hoveredIndex] : "gray", // Smooth color transition
-    config: { tension: 170, friction: 26 }, // Adjust the speed and smoothness
-  });
+  const [autoIndex, setAutoIndex] = useState(0);
 
+  // Auto-cycle through texts when not hovering
   useEffect(() => {
-    console.log("Cube ref:", cube.current);
-  }, []);
+    if (hoveredIndex === null) {
+      const interval = setInterval(() => {
+        setAutoIndex((prev) => (prev + 1) % TEXTS.length);
+      }, 1500); // Change text every 1.5 seconds
 
-  const jump = () => {
-    if (cube.current) {
-      console.log("Jump triggered!");
-      cube.current.applyImpulse({ x: 0, y: 10, z: 0 });
+      return () => clearInterval(interval);
     }
-  };
-
-  const handleBallPointerDown = () => {
-    setDraggingBall(true);
-  };
-
-  const handleBallPointerMove = (event) => {
-    if (draggingBall) {
-      setBallPosition((prev) => [event.point.x, prev[1], event.point.z]);
-    }
-  };
-
-  const handleBallPointerUp = () => {
-    setDraggingBall(false);
-  };
+  }, [hoveredIndex]);
 
   return (
     <>
-      <ambientLight intensity={0.5} />
+      <ambientLight intensity={0.3} />
+      <pointLight position={[0, 10, 0]} intensity={0.5} />
       <directionalLight position={[10, 10, 5]} intensity={1} />
       <OrbitControls enableZoom={false} enableRotate enablePan target={[0, 0, 0]} />
 
-      {TEXTS.map(({ text, size, height, position, material, interactive }, index) => (
-        <RigidBody key={index} type="dynamic" restitution={0.5} friction={1} position={position} rotation={[-Math.PI / 2, 0, 0]}>
-          <Text3D font="/fonts/helvetiker_regular.typeface.json" size={size} height={height} 
-            onPointerEnter={interactive ? () => setHoveredIndex(index) : undefined} 
-            onPointerLeave={interactive ? () => setHoveredIndex(null) : undefined}>
-            {text}
-            {material === "physical" ? (
-              <a.meshPhysicalMaterial color={hoverColorSpring.color} />
-            ) : (
-              <a.meshStandardMaterial color={hoveredIndex === index ? hoverColorSpring.color : "gray"} />
-            )}
-          </Text3D>
-        </RigidBody>
-      ))}
+      {TEXTS.map(({ text, size, height, position, color }, index) => {
+        const isHovered = hoveredIndex === index;
+        const targetColor = isHovered || (hoveredIndex === null && autoIndex === index) ? color : "gray";
 
-      {/* <RigidBody ref={cube} position={[6, 3, 0]} colliders="cuboid" type="dynamic">
-        <mesh
-          onPointerEnter={() => setHoveredIndex("cube")}
-          onPointerLeave={() => setHoveredIndex(null)}
-          onClick={jump}
-        >
-          <boxGeometry />
-          <meshStandardMaterial color={hoveredIndex === "cube" ? "hotpink" : "royalblue"} />
-        </mesh>
-      </RigidBody> */}
+        // Smooth transition animation
+        const { animatedColor } = useSpring({
+          animatedColor: targetColor,
+          config: { duration: 500 },
+        });
 
-      {/* <RigidBody position={ballPosition} colliders="ball" type="dynamic" ref={ballRef}
-        onPointerDown={handleBallPointerDown}
-        onPointerMove={handleBallPointerMove}
-        onPointerUp={handleBallPointerUp}>
-        <Sphere args={[0.5, 32, 32]}>
-          <meshStandardMaterial color="blue" />
-        </Sphere>
-      </RigidBody> */}
+        return (
+          <RigidBody
+            key={index}
+            type="dynamic"
+            restitution={0.5}
+            friction={1}
+            position={position}
+            rotation={[-Math.PI / 2, 0, 0]}
+          >
+            <Text3D
+              font="/fonts/tiny5.json"
+              size={size}
+              height={height}
+              onPointerEnter={() => setHoveredIndex(index)}
+              onPointerLeave={() => setHoveredIndex(null)}
+            >
+              {text}
+              <a.meshStandardMaterial color={animatedColor} />
+            </Text3D>
+          </RigidBody>
+        );
+      })}
 
+      {/* NAMES Section */}
+      {NAMES.map(({ text, size, height, position }, index) => {
+        const targetColor = hoveredIndex !== null ? TEXTS[hoveredIndex].color : TEXTS[autoIndex].color;
+
+        const { animatedColor } = useSpring({
+          animatedColor: targetColor,
+          config: { duration: 400 },
+        });
+
+        return (
+          <RigidBody key={index} type="dynamic" restitution={0.5} friction={1} position={position} rotation={[-Math.PI / 2, 0, 0]}>
+            <Text3D font="/fonts/tiny5.json" size={size} height={height}>
+              {text}
+              <a.meshStandardMaterial color={animatedColor} />
+            </Text3D>
+          </RigidBody>
+        );
+      })}
+
+      {/* Invisible Ground */}
       <RigidBody type="fixed" friction={2}>
         <mesh position={[0, 0, 0]}>
           <boxGeometry args={[20, 1, 20]} />

@@ -333,7 +333,7 @@ const Works = () => {
       
       {/* button */}
         <div className="flex justify-center items-center p-10">
-          <button onClick={() => navigate("/projects")} className="px-6 py-3 custom-glass dark:bg-black/10 rounded-full">
+          <button onClick={() => navigate("/projects")} className="hover:scale-105 transition-transform duration-200 px-6 py-3 custom-glass dark:bg-black/10 rounded-full">
               Browse All Projects
           </button>
         </div>

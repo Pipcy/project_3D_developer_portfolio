@@ -51,9 +51,9 @@
 // }
 
 // export default App;
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 
-import { Suspense, useState } from "react";
+import { Suspense, useRef, useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import { About, Contact, Experience, Feedbacks, Hero, Hero3D, Navbar, NavbarSimple,Tech, Works, StarsCanvas, VideoCanvas, FloatingBlocksCanvas, Footer, ProjectPage, AllProjects } from "./components";
@@ -61,6 +61,25 @@ import LoadingPage from './components/LoadingPage'; // Import the LoadingPage co
 import ContactPage from './components/ContactPage'; // Import the ContactPage component
 import { ThemeProvider } from "./Theme/ThemeContext";
 import { Physics } from "@react-three/rapier";
+
+
+const CameraController = () => {
+  const cameraRef = useRef();
+  const radius = 10; // Radius of the circular path
+  const speed = 0.1; // Speed of rotation
+
+  useFrame(({ camera, clock }) => {
+    const elapsedTime = clock.getElapsedTime();
+    const x = 1.5 * Math.sin(elapsedTime * speed) * radius;
+    const y = 28 + 0.8 * Math.cos(elapsedTime * speed) * radius;
+    const z = 25 + 0*Math.sin(elapsedTime * speed) * radius;
+
+    camera.position.set(x, y, z); // Adjust height (Y) as needed
+    camera.lookAt(0, 0, 2); // Always look at the center of the scene
+  });
+
+  return null;
+};
 
 const App = () => {
   const [entered, setEntered] = useState(false);  // State to track if the user has clicked "Enter"
@@ -82,11 +101,13 @@ const App = () => {
                   <div className="absolute inset-0 bg-black/15 backdrop-blur-lg z-0"></div> {/*matte black background*/}
                   
 
-                  <Canvas 
-                    gl={{ alpha: true }} 
-                    style={{ width: "100vw", height: "100vh", background: "transparent" }} 
-                    shadows camera={{ position: [-20, 40, 30 ], fov: 10 }} 
-                  >               
+                  <Canvas
+                    gl={{ alpha: true }}
+                    style={{ width: "100vw", height: "100vh", background: "transparent" }}
+                    shadows
+                    camera={{ position: [-18, 40, 25], fov: 8 }}
+                  >
+                    <CameraController /> {/* Attach the animated camera */}
                     <Suspense>
                       <Physics gravity={[0, -4, 0]}>
                         <Hero3D />
@@ -94,25 +115,12 @@ const App = () => {
                     </Suspense>
                   </Canvas>
 
-                  {/* <div className='bg-cover bg-no-repeat bg-center'>
-                    <Hero />
-                  </div>   */}
-
-
-
-
-
-
-                  <About />
-                  
-                  <Tech />            
-                  <Works />
-                  <Experience />
-                  
-                  {/* <Feedbacks /> */}
-                  {/* <div className='relative z-0'>
-                    <Contact />
-                  </div> */}
+                  <div className='pl-5'>
+                    <About />
+                    <Tech />            
+                    <Works />
+                    <Experience />
+                  </div>
 
                   <Footer />
                   <StarsCanvas />

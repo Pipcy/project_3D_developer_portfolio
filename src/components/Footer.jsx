@@ -1,21 +1,28 @@
+
+
+// const Footer = () => {
+//   return (
+//     <footer className="relative z-0 bg-gray-400/10 backdrop-blur-sm min-h-[150px] max-h-[270px] py-10 text-center overflow-hidden">
+//       <p className="text-sm">&copy; {new Date().getFullYear()} PIPPI. ALL RIGHTS RESERVED.</p>
+//       <p>CRAFTED BY YOURS TRULY. FROM LITERAL CHICKEN SCRATCH.</p>
+//       <h1 className="text-[200px] font-bold relative text-black/20 dark:text-white/20">PIPPI PI</h1>
+//     </footer>
+//   );
+// };
+
+// export default Footer;
+
 const Footer = () => {
-    return (
-      <footer className="relative z-0 bg-gray-400/10 backdrop-blur-sm min-h-[150px] py-10 text-center">
-        <p className="text-sm">&copy; {new Date().getFullYear()} PIPPI. ALL RIGHTS RESERVED.</p>
-        <p>  CRAFTED BY YOURS TRULY. FROM LITERAL CHICKEN SCRATCH.</p>
-        <div className="flex justify-center gap-4 mt-2">
-          {/* <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            GitHub
-          </a>
-          <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-gray-400">
-            LinkedIn
-          </a>
-          <a href="mailto:your.email@example.com" className="hover:text-gray-400">
-            Email
-          </a> */}
-        </div>
-      </footer>
-    );
-  };
-  
-  export default Footer;
+  return (
+    <>
+    <div className="custom-glass dark:bg-black/10 relative z-0 bg-gray-400/10 backdrop-blur-sm min-h-[150px] max-h-[270px] py-10 px-10 text-center overflow-hidden mx-20 rounded-3xl">
+      <p className="text-sm">&copy; {new Date().getFullYear()} PIPPI. ALL RIGHTS RESERVED.</p>
+      <p>CRAFTED BY YOURS TRULY. FROM LITERAL CHICKEN SCRATCH.</p>
+      <h1 className="text-[200px] font-bold relative text-black/10 dark:text-white/10">PIPPI PI</h1>
+    </div>
+    <div className="p-3"/>
+    </>
+  );
+};
+
+export default Footer;

@@ -132,7 +132,7 @@ const ProjectPage = () => {
     <div className="flex-1 ml-1/3 p-20 overflow-y-auto relative flex flex-col justify-between">
       {/* Close Button */}
       <motion.button
-        className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 hover:bg-gray-300 text-gray-600 hover:text-black shadow-md transition-all"
+        className="absolute top-4 right-4 p-2 rounded-full text-gray-500 hover:text-black hover:dark:text-white transition-all"
         onClick={() => navigate("/projects")}
         whileHover={{ scale: 1.2, rotate: 90 }}
         whileTap={{ scale: 0.9 }}
@@ -160,13 +160,13 @@ const ProjectPage = () => {
       <div className="absolute bottom-5 right-1/2 transform translate-x-1/2 flex space-x-4">
         <button
           onClick={() => navigate(`/projects/${prevProject.slug}`)}
-          className="px-4 py-2 rounded-full w-40 hover:bg-blue-300 custom-glass dark:bg-black/10 "
+          className="hover:scale-105 transition-transform duration-200 px-4 py-2 rounded-full w-40 custom-glass dark:bg-black/10 "
         >
           Previous Project
         </button>
         <button
           onClick={() => navigate(`/projects/${nextProject.slug}`)}
-          className="px-4 py-2 rounded-full w-40 hover:bg-blue-300 custom-glass dark:bg-black/10 "
+          className="hover:scale-105 transition-transform duration-200 px-4 py-2 rounded-full w-40 custom-glass dark:bg-black/10 "
         >
           Next Project
         </button>
