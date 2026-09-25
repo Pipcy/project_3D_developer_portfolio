@@ -27,13 +27,13 @@ const ExperienceCard = ({ experience }) => {
       date={experience.date}
       dateClassName='text-[14px] font-semibold'
       
-      iconStyle={{ background: experience.iconBg }}
+      iconStyle={{ background: experience.iconBg, overflow: "hidden" }}
       icon={
         <div className='flex justify-center items-center w-full h-full'>
           <img
             src={experience.icon}
             alt={experience.company_name}
-            className=' object-contain'
+            className='w-full h-full object-contain'
           />
         </div>
       }
@@ -67,7 +67,7 @@ const Experience = () => {
     <>
       <motion.div variants={textVariant()}>
         <p className={`${styles.sectionSubText} text-center`}>
-          Internship
+          Career
         </p>
         <h2 className={`${styles.sectionHeadText} text-center`}>
           Experiences

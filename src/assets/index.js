@@ -50,6 +50,7 @@ import starbucks from "./company/starbucks.png";
 import tesla from "./company/tesla.png";
 import universal from "./company/universal.svg";
 import microsoft from "./company/microsoft.png";
+import halo from "./company/halo.png";
 
 import carrent from "./carrent.png";
 import jobit from "./jobit.png";
@@ -143,6 +144,7 @@ export {
   tripguide,
   universal,
   microsoft,
+  halo,
   proj1_img1,
   
 

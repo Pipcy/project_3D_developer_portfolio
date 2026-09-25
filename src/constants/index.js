@@ -12,6 +12,7 @@ import {
   threejs,
   universal,
   microsoft,
+  halo,
   proj1_img1,
   cpp,
   onshape,
@@ -175,13 +176,16 @@ const technologies = [
 
 const experiences = [
   {
-    title: "R&D Software Engineering Intern",
-    company_name: "Universal Creative",
-    icon: universal,
-    iconBg: "#ffffff",
-    date: "1/2024 - 8/2024",
+    title: "Software Engineer",
+    company_name: "Halo Studios",
+    icon: halo,
+    iconBg: "#000000",
+    date: "8/2026 - 9/2026",
     points: [
-      "Worked in ATI R&D (Advanced Technology Interactive), researched new interactive technology, contributed to design, iteration, and testing for blue-sky project for Universal park attraction innovation."
+      "Developed intelligent NPC bots by training ML models in Unreal Engine with Learning Agents, contributing to two production features for an unannounced Halo title.",
+      "Built a custom Unreal gym in Blueprint and C++ with reward functions and a state tree for tasks such as weapon pickup and obstacle avoidance.",
+      "Iterated on behavior trees with a Utility System, combining ML rewards and imitation learning so bots adapt in play.",
+      "Worked with engineers and designers to scope, build, and test features, and maintained production code through Perforce and Swarm.",
     ],
   },
   {
@@ -192,6 +196,16 @@ const experiences = [
     date: "5/2025 - 8/2025",
     points: [
       "Incoming intern for Microsoft Gaming Business Group."
+    ],
+  },
+  {
+    title: "R&D Software Engineering Intern",
+    company_name: "Universal Creative",
+    icon: universal,
+    iconBg: "#ffffff",
+    date: "1/2024 - 8/2024",
+    points: [
+      "Worked in ATI R&D (Advanced Technology Interactive), researched new interactive technology, contributed to design, iteration, and testing for blue-sky project for Universal park attraction innovation."
     ],
   },
 ];
