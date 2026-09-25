@@ -19,6 +19,7 @@ import {
   starbucks,
   tesla,
   shopify,
+  halo,
   carrent,
   jobit,
   tripguide,
@@ -115,6 +116,19 @@ const technologies = [
 ];
 
 const experiences = [
+  {
+    title: "Software Engineer",
+    company_name: "Halo Studios",
+    icon: halo,
+    iconBg: "#000000",
+    date: "8/2026 - 9/2026",
+    points: [
+      "Developed intelligent NPC bots by training ML models in Unreal Engine with Learning Agents, contributing to two production features for an unannounced Halo title.",
+      "Built a custom Unreal gym in Blueprint and C++ with reward functions and a state tree for tasks such as weapon pickup and obstacle avoidance.",
+      "Iterated on behavior trees with a Utility System, combining ML rewards and imitation learning so bots adapt in play.",
+      "Worked with engineers and designers to scope, build, and test features, and maintained production code through Perforce and Swarm.",
+    ],
+  },
   {
     title: "React.js Developer",
     company_name: "Starbucks",
